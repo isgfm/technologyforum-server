@@ -28,5 +28,13 @@ public class ThemeController {
         return Result.success(ThemeClassVO.init(tabs,node));
     }
 
-    @GetMapping("/themelist")
+//    @GetMapping("/themelist/tab")
+//    public Result getThemeListByTab(@RequestParam("tabId")int tabId){
+//
+//    }
+
+    @GetMapping("/themelist/node")
+    public Result getThemeListByNode(){
+        return Result.success(themeService.getThemeList());
+    }
 }

@@ -4,7 +4,7 @@
 <configuration>
 
     <typeAliases>
-
+<!--        <package name="com.guo.technologyforum.dao.entity"/>-->
     </typeAliases>
     <environments default="development">
         <environment id="development">
