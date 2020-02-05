@@ -3,6 +3,8 @@ package com.guo.technologyforum.dao.entity.vo;
 import com.guo.technologyforum.dao.entity.Theme;
 import com.guo.technologyforum.dao.entity.ThemeReply;
 import com.guo.technologyforum.dao.entity.User;
+import org.apache.ibatis.type.Alias;
+
 
 public class ThemeListVO {
 

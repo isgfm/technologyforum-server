@@ -2,9 +2,11 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD SQL Map Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
     <typeAliases>
-<!--        <package name="com.guo.technologyforum.dao.entity"/>-->
+        <package name="com.guo.technologyforum.dao.entity"/>
+        <package name="com.guo.technologyforum.dao.entity.vo"/>
+        <package name="com.guo.technologyforum.dao.mapper.customMapper"/>
+        <package name="com.guo.technologyforum.dao.mapper.generateMapper"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -17,4 +19,7 @@
             </dataSource>
         </environment>
     </environments>
+    <mappers>
+        <mapper resource="dao/mapper/*/*.xml"/>
+    </mappers>
 </configuration>

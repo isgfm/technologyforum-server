@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="customSql">
+
+    <sql id="prefixTheme">
+        ${tabAlias}.n_id as ${prefix}n_id,
+        ${tabAlias}.n_user_id as ${prefix}n_user_id,
+        ${tabAlias}.c_theme_title as ${prefix}c_theme_title,
+        ${tabAlias}.c_theme_content as ${prefix}c_theme_content,
+        ${tabAlias}.n_theme_class as ${prefix}n_theme_class,
+        ${tabAlias}.d_create_time as ${prefix}d_create_time,
+        ${tabAlias}.d_lastupdate_time as ${prefix}d_lastupdate_time,
+        ${tabAlias}.n_click as ${prefix}n_click,
+        ${tabAlias}.n_theme_status as ${prefix}n_theme_status,
+        ${tabAlias}.n_keep_count as ${prefix}n_keep_count,
+        ${tabAlias}.n_like as ${prefix}n_like,
+        ${tabAlias}.n_dislike as ${prefix}n_dislike
+    </sql>
+
+    <sql id="prefixUser">
+        ${tabAlias}.n_id as ${prefix}n_id,
+        ${tabAlias}.n_parentid as ${prefix}n_parentid,
+        ${tabAlias}.n_depth as ${prefix}n_depth,
+        ${tabAlias}.c_name as ${prefix}c_name,
+        ${tabAlias}.n_order as ${prefix}n_order,
+        ${tabAlias}.b_enable as ${prefix}b_enable,
+        ${tabAlias}.d_createtime as ${prefix}d_createtime,
+        ${tabAlias}.c_description as ${prefix}c_description,
+        ${tabAlias}.c_img_url as ${prefix}c_img_url,
+        ${tabAlias}.c_router as ${prefix}c_router,
+        ${tabAlias}.c_type as ${prefix}c_type
+    </sql>
+
+    <sql id="prefixThemeReply">
+        ${tabAlias}.n_id as ${prefix}n_id,
+        ${tabAlias}.n_theme_id as ${prefix}n_theme_id,
+        ${tabAlias}.n_user_id as ${prefix}n_user_id,
+        ${tabAlias}.c_reply_content as ${prefix}c_reply_content,
+        ${tabAlias}.n_like_count as ${prefix}n_like_count,
+        ${tabAlias}.d_reply_time as ${prefix}d_reply_time,
+        ${tabAlias}.d_lastupdate_time as ${prefix}d_lastupdate_time,
+        ${tabAlias}.n_index as ${prefix}n_index,
+        ${tabAlias}.n_reply_type as ${prefix}n_reply_type,
+        ${tabAlias}.n_reply_id as ${prefix}n_reply_id
+    </sql>
+
+
+</mapper>
