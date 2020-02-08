@@ -38,8 +38,19 @@ public class ThemeService {
         return themeClassMapper.selectByExample(themeClassExample);
     }
 
-    public List<ThemeListVO> getThemeList(){
-        return customThemeMapper.getThemeListByNodeId(3);
+    public List<ThemeListVO> getThemeListByNodeId(int nodeId,int offset,int pageSize){
+        return customThemeMapper.getThemeList(null,nodeId,offset,pageSize);
     }
 
+    public List<ThemeListVO> getThemeListByTabId(int tabId,int offset,int pageSize){
+        return customThemeMapper.getThemeList(tabId,null,offset,pageSize);
+    }
+
+    public List<ThemeListVO> getTodayHotTheme(int limit){
+        return customThemeMapper.getTodayHotTheme(limit);
+    }
+
+    public List<ThemeClass> getHotClassNode(int limit){
+        return customThemeMapper.getHotClassNode(limit);
+    }
 }

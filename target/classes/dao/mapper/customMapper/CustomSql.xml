@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="customSql">
+<mapper namespace="com.guo.technologyforum.dao.mapper.customMapper.CustomSql">
+
+<!--    <sql id="name">-->
+<!--        ${tabAlias}.n_id as ${prefix}n_id,-->
+<!--        ${tabAlias}.n_id as ${prefix}n_id,-->
+<!--        ${tabAlias}.n_id as ${prefix}n_id,-->
+<!--        ${tabAlias}.n_id as ${prefix}n_id,-->
+<!--        ${tabAlias}.n_id as ${prefix}n_id,-->
+<!--        ${tabAlias}.n_id as ${prefix}n_id,-->
+<!--        ${tabAlias}.n_id as ${prefix}n_id,-->
+<!--        ${tabAlias}.n_id as ${prefix}n_id,-->
+<!--        ${tabAlias}.n_id as ${prefix}n_id,-->
+<!--        ${tabAlias}.n_id as ${prefix}n_id,-->
+<!--        ${tabAlias}.n_id as ${prefix}n_id,-->
+<!--        ${tabAlias}.n_id as ${prefix}n_id-->
+<!--    </sql>-->
+
+    <sql id="prefixUser">
+        ${tabAlias}.n_id as ${prefix}n_id,
+        ${tabAlias}.c_username as ${prefix}c_username,
+        ${tabAlias}.c_password as ${prefix}c_password,
+        ${tabAlias}.c_email as ${prefix}c_email,
+        ${tabAlias}.n_sex as ${prefix}n_sex,
+        ${tabAlias}.c_telephone as ${prefix}c_telephone,
+        ${tabAlias}.c_personal_website as ${prefix}c_personal_website,
+        ${tabAlias}.c_company as ${prefix}c_company,
+        ${tabAlias}.c_position as ${prefix}c_position,
+        ${tabAlias}.c_location as ${prefix}c_location,
+        ${tabAlias}.c_signature as ${prefix}c_signature,
+        ${tabAlias}.c_personal_introduction as ${prefix}c_personal_introduction,
+        ${tabAlias}.c_avatar as ${prefix}c_avatar,
+        ${tabAlias}.n_coin as ${prefix}n_coin,
+        ${tabAlias}.d_create_time as ${prefix}d_create_time,
+        ${tabAlias}.d_update_time as ${prefix}d_update_time
+    </sql>
 
     <sql id="prefixTheme">
         ${tabAlias}.n_id as ${prefix}n_id,
@@ -17,7 +51,7 @@
         ${tabAlias}.n_dislike as ${prefix}n_dislike
     </sql>
 
-    <sql id="prefixUser">
+    <sql id="prefixThemeClass">
         ${tabAlias}.n_id as ${prefix}n_id,
         ${tabAlias}.n_parentid as ${prefix}n_parentid,
         ${tabAlias}.n_depth as ${prefix}n_depth,

@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23030701-4ed2-462c-8a10-2ba895970cbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/customMapper/CustomSql.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomSql.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ForumController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/vo/ForumStateVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/customMapper/CustomForumMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/ForumService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomForumMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/vo/ThemeListVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/vo/ThemeListVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ThemeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ThemeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/customMapper/CustomThemeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/customMapper/CustomThemeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/ThemeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/ThemeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomSql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomSql.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomThemeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomThemeMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/mapper/customMapper/CustomSql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/mapper/customMapper/CustomSql.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dao/mapper/customMapper/CustomThemeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/mapper/customMapper/CustomThemeMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis-config.xml" afterDir="false" />
     </list>
@@ -24,6 +31,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -47,7 +55,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="E:/javaStudy/dish_recommend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -97,7 +105,9 @@
       <workItem from="1580559007978" duration="1742000" />
       <workItem from="1580560765152" duration="6410000" />
       <workItem from="1580611821989" duration="61383000" />
-      <workItem from="1580880049822" duration="1636000" />
+      <workItem from="1580880049822" duration="2236000" />
+      <workItem from="1580885652056" duration="18869000" />
+      <workItem from="1580961254671" duration="34952000" />
     </task>
     <servers />
   </component>
@@ -118,25 +128,6 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.5.3/mybatis-3.5.3.jar!/org/apache/ibatis/type/TypeAliasRegistry.class</url>
-          <line>106</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.5.3/mybatis-3.5.3-sources.jar!/org/apache/ibatis/type/TypeAliasRegistry.java</url>
-          <line>129</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.5.3/mybatis-3.5.3-sources.jar!/org/apache/ibatis/io/VFS.java</url>
-          <line>198</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="node.get(1)" />

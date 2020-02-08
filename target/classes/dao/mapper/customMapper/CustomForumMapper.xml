@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guo.technologyforum.dao.mapper.customMapper.CustomForumMapper">
+    <resultMap id="forumStateVO" type="ForumStateVO">
+        <association property="registerNumber" column="registerNumber" javaType="int" select="getRegisterNumber"></association>
+        <association property="themeNumber" column="themeNumber" javaType="int" select="getThemeNumber"></association>
+        <association property="themeReplyNumber" column="themeReplyNumber" javaType="int" select="getThemeReplyNumber"></association>
+    </resultMap>
+
+    <select id="getForumState" resultMap="forumStateVO">
+        select * from t_temp
+    </select>
+    <select id="getRegisterNumber" resultType="int">
+        select count(1) registerNumber from t_user
+    </select>
+    <select id="getThemeNumber" resultType="int">
+        select count(1) themeNumber from t_theme
+    </select>
+    <select id="getThemeReplyNumber" resultType="int">
+        select count(1) themeReplyNumber from t_theme_reply
+    </select>
+</mapper>

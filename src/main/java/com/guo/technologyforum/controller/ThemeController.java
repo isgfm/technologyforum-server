@@ -21,6 +21,11 @@ public class ThemeController {
         return Result.success(themeService.getThemeClass(depth));
     }
 
+    @GetMapping("/class/hot")
+    public Result getHotClassNode(@RequestParam("limit")int limit){
+        return Result.success(themeService.getHotClassNode(limit));
+    }
+
     @GetMapping("/homeclass")
     public Result getTabs(){
         List<ThemeClass> tabs = themeService.getHomeTabs();
@@ -28,13 +33,24 @@ public class ThemeController {
         return Result.success(ThemeClassVO.init(tabs,node));
     }
 
-//    @GetMapping("/themelist/tab")
-//    public Result getThemeListByTab(@RequestParam("tabId")int tabId){
-//
-//    }
-
-    @GetMapping("/themelist/node")
-    public Result getThemeListByNode(){
-        return Result.success(themeService.getThemeList());
+    @GetMapping("/themelist/tab/{tabId}")
+    public Result getThemeListByTab(@PathVariable("tabId")int tabId,
+                                    @RequestParam("offset")int offset,
+                                    @RequestParam("pageSize")int pageSize){
+        return Result.success(themeService.getThemeListByTabId(tabId,offset,pageSize));
     }
+
+    @GetMapping("/themelist/node/{nodeId}")
+    public Result getThemeListByNode(@PathVariable("nodeId")int nodeId,
+                                     @RequestParam("offset")int offset,
+                                     @RequestParam("pageSize")int pageSize){
+        return Result.success(themeService.getThemeListByNodeId(nodeId,offset,pageSize));
+    }
+
+    @GetMapping("/hot")
+    public Result getTodayHotTheme(@RequestParam("limit")int limit){
+        return Result.success(themeService.getTodayHotTheme(limit));
+    }
+
+
 }
