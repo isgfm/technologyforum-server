@@ -63,17 +63,14 @@
         limit #{limit}
     </select>
 
-    <select id="getHotClassNode" resultType="ThemeClass">
+    <select id="getHotClassNode" resultMap="com.guo.technologyforum.dao.mapper.generateMapper.ThemeClassMapper.BaseResultMap">
         select
-        <include refid="com.guo.technologyforum.dao.mapper.customMapper.CustomSql.prefixThemeClass">
-            <property name="tabAlias" value="t_theme_class"/>
-            <property name="prefix" value="themeclass_"/>
-        </include>
-        from t_theme_class
-        where t_theme_class.n_id in
-        (<include refid="hotClassId">
-            <property name="limit" value="#{limit}"/>
-        </include>)
+        t_theme_class.*
+        from  t_theme_class right join (select n_theme_class from t_theme
+        GROUP BY t_theme.n_theme_class
+        order by count(*) desc
+        limit #{limit}) as theme_class_id
+        on t_theme_class.n_id = theme_class_id.n_theme_class
     </select>
 
     <sql id="hotClassId">

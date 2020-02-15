@@ -395,6 +395,76 @@ public class UserExample {
             return (Criteria) this;
         }
 
+        public Criteria andCSaltIsNull() {
+            addCriterion("c_salt is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSaltIsNotNull() {
+            addCriterion("c_salt is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSaltEqualTo(String value) {
+            addCriterion("c_salt =", value, "cSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSaltNotEqualTo(String value) {
+            addCriterion("c_salt <>", value, "cSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSaltGreaterThan(String value) {
+            addCriterion("c_salt >", value, "cSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSaltGreaterThanOrEqualTo(String value) {
+            addCriterion("c_salt >=", value, "cSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSaltLessThan(String value) {
+            addCriterion("c_salt <", value, "cSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSaltLessThanOrEqualTo(String value) {
+            addCriterion("c_salt <=", value, "cSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSaltLike(String value) {
+            addCriterion("c_salt like", value, "cSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSaltNotLike(String value) {
+            addCriterion("c_salt not like", value, "cSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSaltIn(List<String> values) {
+            addCriterion("c_salt in", values, "cSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSaltNotIn(List<String> values) {
+            addCriterion("c_salt not in", values, "cSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSaltBetween(String value1, String value2) {
+            addCriterion("c_salt between", value1, value2, "cSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSaltNotBetween(String value1, String value2) {
+            addCriterion("c_salt not between", value1, value2, "cSalt");
+            return (Criteria) this;
+        }
+
         public Criteria andCEmailIsNull() {
             addCriterion("c_email is null");
             return (Criteria) this;
