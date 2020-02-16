@@ -3,7 +3,9 @@ package com.guo.technologyforum.service;
 import com.guo.technologyforum.dao.entity.User;
 import com.guo.technologyforum.dao.entity.UserExample;
 import com.guo.technologyforum.dao.mapper.generateMapper.UserMapper;
+import com.guo.technologyforum.util.CommonUtil;
 import com.guo.technologyforum.util.EncryptUtil;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +35,22 @@ public class UserService {
     }
 
     public int addUser(User user){
+        user.setdCreateTime(CommonUtil.getNowDate());
         return userMapper.insert(user);
+    }
+
+    public  List<User> getAllUser(){
+        return userMapper.selectByExample(new UserExample());
+    }
+
+    public long getUserCount(){
+        return userMapper.countByExample(new UserExample());
+    }
+
+    public List<User> GetUsersByPageAndCount(int pageIndex,int pageSize){
+        int offset = pageIndex * pageSize;
+        int limit = pageSize;
+        RowBounds rowBounds = new RowBounds(offset,limit);
+        return userMapper.selectByExampleWithRowbounds(new UserExample(),rowBounds);
     }
 }

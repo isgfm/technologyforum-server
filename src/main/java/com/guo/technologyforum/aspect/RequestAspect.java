@@ -15,8 +15,8 @@ import java.util.Optional;
 @Aspect
 @Component
 public class RequestAspect {
-
-    @Pointcut(value = "execution(* com.guo.dish_recommend.controller.*.*(..))&& @annotation(com.guo.technologyforum.annotation.RequireLogin)")
+//    execution(* com.guo.technologyforum.controller.*.*(..))&&
+    @Pointcut(value = "@annotation(com.guo.technologyforum.annotation.RequireLogin)")
     public void loginCut(){}
 
     @Around("loginCut()")

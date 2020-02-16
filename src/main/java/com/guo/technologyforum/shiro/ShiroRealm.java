@@ -28,9 +28,7 @@ public class ShiroRealm extends AuthorizingRealm {
             User user = optionalUser.get();
             SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
             Set<String> role = new HashSet<>();
-            if(user.getAdmin()){
-                role.add(UserPermission.ROLE_ADMIN);
-            }
+            role.add(UserPermission.ROLE_ADMIN);
             simpleAuthorizationInfo.setRoles(role);
             return simpleAuthorizationInfo;
         }

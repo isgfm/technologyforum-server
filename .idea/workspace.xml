@@ -2,75 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23030701-4ed2-462c-8a10-2ba895970cbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cn_apiclub_tool_simplecaptcha_1_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_lettuce_lettuce_core_5_2_1_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_45_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_3_2_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_cache_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_config_core_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_config_ogdl_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_core_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_cipher_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_core_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_crypto_hash_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_event_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_lang_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_spring_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_shiro_shiro_web_1_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_owasp_encoder_encoder_1_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_2_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_cache_2_2_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_2_2_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_2_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_2_2_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_2_2_4_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/annotation/RequireLogin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/aspect/RequestAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/config/ShiroConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/config/WebMvcConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/CaptchaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/interceptor/TokenInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/redis/RedisManage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/redis/RedisService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/redis/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/redis/prefix/BasePrefix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/redis/prefix/KeyPrefix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/shiro/ShiroRealm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/shiro/ShiroRedisDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/shiro/ShiroSessionDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/shiro/ShiroSessionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/util/EncryptUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/util/UserUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sql/2020-2-15.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/dto/LoginDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/util/CommonUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/aspect/system/ControllerCallAspect.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/UserExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/generateMapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/aspect/RequestAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/aspect/RequestAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/config/FilterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/config/FilterConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/constant/UserPermission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/constant/UserPermission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/redis/config/RedisConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomThemeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomThemeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dao/mapper/generateMapper/UserMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/mapper/customMapper/CustomThemeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/mapper/customMapper/CustomThemeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/technologyforum_server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/technologyforum_server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/shiro/ShiroRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/shiro/ShiroRealm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/mapper/generateMapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/mapper/generateMapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generatorConfig.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,23 +51,23 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/guo/technologyforum" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.guo.technologyforum.util" />
       <recent name="com.guo.technologyforum.interceptor" />
       <recent name="com.guo.technologyforum.aspect" />
       <recent name="com.guo.technologyforum.annotation" />
       <recent name="com.guo.technologyforum.redis" />
-      <recent name="com.guo.technologyforum.util" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\programwork\graduateDesign\technologyforum-server\src\main\java\com\guo\technologyforum\controller" />
       <recent name="E:\programwork\graduateDesign\technologyforum-server\src\main\java\com\guo\technologyforum" />
       <recent name="E:\programwork\graduateDesign\technologyforum-server\src\main\java\com\guo\technologyforum\config" />
       <recent name="E:\programwork\graduateDesign\technologyforum-server\src\main\java\com\guo\technologyforum\shiro" />
       <recent name="E:\programwork\graduateDesign\technologyforum-server\src\main\java\com\guo\technologyforum\redis\prefix" />
-      <recent name="E:\programwork\graduateDesign\technologyforum-server\src\main\java\com\guo\technologyforum\redis" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -168,7 +112,9 @@
       <workItem from="1581241856752" duration="7154000" />
       <workItem from="1581486584644" duration="454000" />
       <workItem from="1581496946094" duration="2443000" />
-      <workItem from="1581591244612" duration="22046000" />
+      <workItem from="1581591244612" duration="22812000" />
+      <workItem from="1581822807445" duration="593000" />
+      <workItem from="1581852011268" duration="7152000" />
     </task>
     <servers />
   </component>
