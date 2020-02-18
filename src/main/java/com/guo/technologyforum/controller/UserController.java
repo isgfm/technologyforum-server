@@ -14,29 +14,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("api/user")
 public class UserController {
     @Autowired
     UserService userService;
 
     @GetMapping("/currentUser")
-    @FastJsonView(include = {@FastJsonFilter(clazz = User.class,props = {"id","username","admin"})})
+    @FastJsonView(include = {@FastJsonFilter(clazz = User.class,props = {"nId","cUsername"})})
     public Result currentUser(){
         Optional<User> user = UserUtil.currentUser();
-        return Result.success(user.get());
+        try {
+            return Result.success(user.get());
+        } catch (NoSuchElementException e) {
+            return Result.success(null);
+        }
     }
 
     @GetMapping("/allUser")
-    @FastJsonView(include = {@FastJsonFilter(clazz = User.class,props = {"id","username","createDate"})})
+    @FastJsonView(include = {@FastJsonFilter(clazz = User.class,props = {"nId","cUsername"})})
     public  Result allUser(){
         return Result.success(JsonUtil.ListToJsonString(userService.getAllUser()));
     }
 
     @GetMapping("/users")
-    @FastJsonView(include = {@FastJsonFilter(clazz = User.class,props = {"id","username","createDate"})})
+    @FastJsonView(include = {@FastJsonFilter(clazz = User.class,props = {"nId","cUsername"})})
     public Result GetOrderByPage(@RequestParam("pageIndex")int pageIndex, @RequestParam("pageSize")int pageSize){
         Result r = new Result();
         r.setResultCode(ResultCode.SUCCESS);

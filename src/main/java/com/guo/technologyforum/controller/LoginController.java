@@ -3,6 +3,7 @@ package com.guo.technologyforum.controller;
 import com.guo.technologyforum.constant.ResultCode;
 import com.guo.technologyforum.constant.UserPermission;
 import com.guo.technologyforum.dao.entity.User;
+import com.guo.technologyforum.dao.entity.dto.LoginDTO;
 import com.guo.technologyforum.result.Result;
 import com.guo.technologyforum.service.UserService;
 import com.guo.technologyforum.shiro.ShiroRedisDAO;
@@ -42,8 +43,9 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public Result login(@RequestBody User user){
+    public Result login(@RequestBody LoginDTO loginDTO){
         Result r = new Result();
+        User user = initUser(loginDTO);
         executeLogin(user,r);
         return r;
     }
@@ -58,8 +60,9 @@ public class LoginController {
     }
 
     @PostMapping("/register")
-    public Result register(@RequestBody User user){
+    public Result register(@RequestBody LoginDTO loginDTO){
         Result r = new Result();
+        User user = initUser(loginDTO);
         if(userService.getUserByUserName(user.getcUsername()).isPresent()){
             r.setResultCode(ResultCode.USER_HAS_EXISTED);
             return r;
@@ -76,6 +79,13 @@ public class LoginController {
         return r;
     }
 
+
+    private User initUser(LoginDTO loginDTO){
+        User user = new User();
+        user.setcUsername(loginDTO.getUsername());
+        user.setcPassword(loginDTO.getPassword());
+        return user;
+    }
 
     private void executeLogin(User user,Result r){
         Subject subject = SecurityUtils.getSubject();

@@ -2,19 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23030701-4ed2-462c-8a10-2ba895970cbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/dto/LoginDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/util/CommonUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/aspect/RequestAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/aspect/RequestAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/config/FilterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/config/FilterConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/constant/UserPermission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/constant/UserPermission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/redis/config/RedisConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/shiro/ShiroRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/shiro/ShiroRealm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/mapper/generateMapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/mapper/generateMapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generatorConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Announce.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Announce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/AnnounceUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/AnnounceUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Keep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Keep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Notify.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Notify.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Right.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Right.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Role_right.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Role_right.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Theme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Theme.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/ThemeClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/ThemeClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/ThemeReply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/ThemeReply.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/UserRelation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/UserRelation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/dto/LoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/dto/LoginDTO.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +117,9 @@
       <workItem from="1581496946094" duration="2443000" />
       <workItem from="1581591244612" duration="22812000" />
       <workItem from="1581822807445" duration="593000" />
-      <workItem from="1581852011268" duration="7152000" />
+      <workItem from="1581852011268" duration="13994000" />
+      <workItem from="1581943142274" duration="2257000" />
+      <workItem from="1582023083917" duration="7248000" />
     </task>
     <servers />
   </component>
