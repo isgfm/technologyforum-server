@@ -1,5 +1,7 @@
 package com.guo.technologyforum.dao.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -30,6 +32,7 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
+    @JsonIgnore
     private String cPassword;
 
     /**
@@ -39,6 +42,7 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
+    @JsonIgnore
     private String cSalt;
 
     /**

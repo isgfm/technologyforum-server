@@ -23,8 +23,15 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @GetMapping("/test")
+    @FastJsonView(exclude = {@FastJsonFilter(clazz = User.class,props = {"cPassword","cSalt"})})
+    public User getUU(){
+        User user = new User();
+        user.setcSalt("123");
+        return user;
+    }
+
     @GetMapping("/currentUser")
-    @FastJsonView(include = {@FastJsonFilter(clazz = User.class,props = {"nId","cUsername"})})
     public Result currentUser(){
         Optional<User> user = UserUtil.currentUser();
         try {
@@ -35,13 +42,11 @@ public class UserController {
     }
 
     @GetMapping("/allUser")
-    @FastJsonView(include = {@FastJsonFilter(clazz = User.class,props = {"nId","cUsername"})})
     public  Result allUser(){
         return Result.success(JsonUtil.ListToJsonString(userService.getAllUser()));
     }
 
     @GetMapping("/users")
-    @FastJsonView(include = {@FastJsonFilter(clazz = User.class,props = {"nId","cUsername"})})
     public Result GetOrderByPage(@RequestParam("pageIndex")int pageIndex, @RequestParam("pageSize")int pageSize){
         Result r = new Result();
         r.setResultCode(ResultCode.SUCCESS);

@@ -1,5 +1,6 @@
 package com.guo.technologyforum.controller;
 
+import com.guo.technologyforum.annotation.CheckCaptcha;
 import com.guo.technologyforum.constant.ResultCode;
 import com.guo.technologyforum.constant.UserPermission;
 import com.guo.technologyforum.dao.entity.User;
@@ -19,6 +20,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 @RestController
@@ -43,7 +46,8 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public Result login(@RequestBody LoginDTO loginDTO){
+    @CheckCaptcha
+    public Result login(@RequestBody LoginDTO loginDTO, HttpServletRequest request){
         Result r = new Result();
         User user = initUser(loginDTO);
         executeLogin(user,r);
@@ -60,7 +64,7 @@ public class LoginController {
     }
 
     @PostMapping("/register")
-    public Result register(@RequestBody LoginDTO loginDTO){
+    public Result register(@RequestBody LoginDTO loginDTO,HttpServletRequest request){
         Result r = new Result();
         User user = initUser(loginDTO);
         if(userService.getUserByUserName(user.getcUsername()).isPresent()){
@@ -97,8 +101,9 @@ public class LoginController {
             subject.getSession().setAttribute(UserPermission.CURRENT_USER, currentUser);
             r.setResultCode(ResultCode.SUCCESS);
             r.customize().put(ShiroSessionManager.OAUTH_TOKEN, subject.getSession().getId());
-            r.customize().put("nId", currentUser.getnId());
-            r.customize().put("cUsername", currentUser.getcUsername());
+            r.customize().put("user", currentUser);
+//            r.customize().put("nId", currentUser.getnId());
+//            r.customize().put("cUsername", currentUser.getcUsername());
         }catch (UnknownAccountException e) {
             r.setResultCode(ResultCode.USER_NOT_EXIST);
         } catch (LockedAccountException e) {
