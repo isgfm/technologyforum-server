@@ -1,10 +1,13 @@
 package com.guo.technologyforum.controller;
 
+import com.guo.technologyforum.annotation.RequireLogin;
 import com.guo.technologyforum.constant.ThemeConstant;
+import com.guo.technologyforum.dao.entity.Theme;
 import com.guo.technologyforum.dao.entity.ThemeClass;
 import com.guo.technologyforum.dao.entity.vo.ThemeClassVO;
 import com.guo.technologyforum.result.Result;
 import com.guo.technologyforum.service.ThemeService;
+import com.guo.technologyforum.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +18,15 @@ import java.util.List;
 public class ThemeController {
     @Autowired
     ThemeService themeService;
+
+    @GetMapping("/test")
+    public Result test(){
+        Theme theme = new Theme();
+        theme.setcThemeTitle("title");
+        theme.setcThemeContent("content");
+        theme.setnThemeClass(1);
+        return Result.success(theme);
+    }
 
     @GetMapping("/class")
     public Result getThemeClassByDepth(@RequestParam("depth")int depth){
@@ -31,6 +43,13 @@ public class ThemeController {
         List<ThemeClass> tabs = themeService.getHomeTabs();
         List<ThemeClass> node = themeService.getThemeClass(ThemeConstant.THEME_CLASS_NODE_DEFAULT_DEPTH);
         return Result.success(ThemeClassVO.init(tabs,node));
+    }
+
+    @PostMapping("/publish")
+    @RequireLogin
+    public Result publishTheme(@RequestBody Theme theme){
+        theme.setnUserId(UserUtil.currentUser().get().getnId());
+        return Result.success(themeService.addTheme(theme));
     }
 
     @GetMapping("/themelist/tab/{tabId}")
