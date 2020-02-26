@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23030701-4ed2-462c-8a10-2ba895970cbd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ThemeClassController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/customMapper/CustomThemeClassMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/ThemeClassService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomThemeClassMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ThemeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ThemeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Theme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/Theme.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/customMapper/CustomThemeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/customMapper/CustomThemeMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/ThemeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/ThemeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomThemeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomThemeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/mapper/customMapper/CustomThemeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/mapper/customMapper/CustomThemeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sql/technologyforum.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sql/technologyforum.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,9 +24,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="AnnotationType" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -55,11 +62,11 @@
       <recent name="com.guo.technologyforum.redis" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\programwork\graduateDesign\technologyforum-server\src\main\resources\sql" />
       <recent name="E:\programwork\graduateDesign\technologyforum-server\src\main\java\com\guo\technologyforum\controller" />
       <recent name="E:\programwork\graduateDesign\technologyforum-server\src\main\java\com\guo\technologyforum" />
       <recent name="E:\programwork\graduateDesign\technologyforum-server\src\main\java\com\guo\technologyforum\config" />
       <recent name="E:\programwork\graduateDesign\technologyforum-server\src\main\java\com\guo\technologyforum\shiro" />
-      <recent name="E:\programwork\graduateDesign\technologyforum-server\src\main\java\com\guo\technologyforum\redis\prefix" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -111,7 +118,8 @@
       <workItem from="1582023083917" duration="7504000" />
       <workItem from="1582081861332" duration="20031000" />
       <workItem from="1582258043703" duration="31071000" />
-      <workItem from="1582516760215" duration="8725000" />
+      <workItem from="1582516760215" duration="9058000" />
+      <workItem from="1582681489741" duration="14260000" />
     </task>
     <servers />
   </component>

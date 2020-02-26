@@ -42,11 +42,11 @@
         <include refid="themeListColum"></include>
         where n_theme_class
          <choose>
-             <when test="tabId != null">
-                 in (select n_id from t_theme_class class where class.n_parentid=${tabId})
+             <when test="tabRouter != null">
+                 in (SELECT c2.n_id FROM t_theme_class c1 inner JOIN t_theme_class c2 on c1.n_id=c2.n_parentid where c1.c_router=${tabRouter})
              </when>
              <otherwise>
-                 = ${nodeId}
+                 = (select n_id from t_theme_class c3 where c3.c_router=${nodeRouter})
              </otherwise>
          </choose>
         GROUP BY t_theme.n_id
@@ -63,15 +63,7 @@
         limit #{limit}
     </select>
 
-    <select id="getHotClassNode" resultMap="com.guo.technologyforum.dao.mapper.generateMapper.ThemeClassMapper.BaseResultMap">
-        select
-        t_theme_class.*
-        from  t_theme_class right join (select n_theme_class from t_theme
-        GROUP BY t_theme.n_theme_class
-        order by count(*) desc
-        limit #{limit}) as theme_class_id
-        on t_theme_class.n_id = theme_class_id.n_theme_class
-    </select>
+
 
     <sql id="hotClassId">
         select n_theme_class from t_theme
@@ -82,8 +74,8 @@
 
     <select id="getThemeList" resultMap="themeListVOResultMap">
         <include refid="themeListSql">
-            <property name="tabId" value="#{tabId}"/>
-            <property name="nodeId" value="#{nodeId}"/>
+            <property name="tabRouter" value="#{tabRouter}"/>
+            <property name="nodeRouter" value="#{nodeRouter}"/>
             <property name="pageSize" value="#{pageSize}"/>
             <property name="offset" value="#{offset}"/>
         </include>
@@ -91,8 +83,8 @@
 
     <select id="getThemeListByNodeId" resultMap="themeListVOResultMap">
         <include refid="themeListSql">
-            <property name="nodeId" value="#{nodeId}"/>
-            <property name="tabId" value="#{tabId}"/>
+            <property name="nodeRouter" value="#{nodeRouter}"/>
+            <property name="tabRouter" value="#{tabRouter}"/>
             <property name="pageSize" value="#{pageSize}"/>
             <property name="offset" value="#{offset}"/>
         </include>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guo.technologyforum.dao.mapper.customMapper.CustomThemeClassMapper">
+    
+    <select id="getHotClassNode" resultMap="com.guo.technologyforum.dao.mapper.generateMapper.ThemeClassMapper.BaseResultMap">
+        select
+        t_theme_class.*
+        from  t_theme_class right join (select n_theme_class from t_theme
+        GROUP BY t_theme.n_theme_class
+        order by count(*) desc
+        limit #{limit}) as theme_class_id
+        on t_theme_class.n_id = theme_class_id.n_theme_class
+    </select>
+    
+    <sql id="selectNodesByTabRouter">
+        SELECT c2.n_id FROM t_theme_class c1 inner JOIN t_theme_class c2 on c1.n_id=c2.n_parentid where c1.c_router=${tabRouter}
+    </sql>
+    
+    <select id="getNodesByTabRouter" resultMap="com.guo.technologyforum.dao.mapper.generateMapper.ThemeClassMapper.BaseResultMap">
+        <include refid="selectNodesByTabRouter">
+            <property name="tabRouter" value="#{tabRouter}"/>
+        </include>
+    </select>
+    
+</mapper>

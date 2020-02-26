@@ -17,9 +17,6 @@ import java.util.List;
 public class ThemeService {
 
     @Autowired
-    ThemeClassMapper themeClassMapper;
-
-    @Autowired
     CustomThemeMapper customThemeMapper;
 
     @Autowired
@@ -28,38 +25,23 @@ public class ThemeService {
     @Autowired
     UserService userService;
 
-    public List<ThemeClass> getHomeTabs(){
-        ThemeClassExample themeClassExample = new ThemeClassExample();
-        ThemeClassExample.Criteria criteria = themeClassExample.createCriteria();
-        criteria.andCTypeEqualTo(ThemeConstant.THEME_CLASS_TABS);
-        return themeClassMapper.selectByExample(themeClassExample);
-    }
+
 
     public int addTheme(Theme theme){
         return themeMapper.insert(theme);
     }
 
-    public List<ThemeClass> getThemeClass(int depth){
-        ThemeClassExample themeClassExample = new ThemeClassExample();
-        ThemeClassExample.Criteria criteria = themeClassExample.createCriteria();
-        criteria.andCTypeEqualTo(ThemeConstant.THEME_CLASS_NODE);
-        criteria.andNDepthEqualTo(String.valueOf(depth));
-        return themeClassMapper.selectByExample(themeClassExample);
+    public List<ThemeListVO> getThemeListByNodeId(String nodeRouter,int offset,int pageSize){
+        return customThemeMapper.getThemeList(null,nodeRouter,offset,pageSize);
     }
 
-    public List<ThemeListVO> getThemeListByNodeId(int nodeId,int offset,int pageSize){
-        return customThemeMapper.getThemeList(null,nodeId,offset,pageSize);
-    }
-
-    public List<ThemeListVO> getThemeListByTabId(int tabId,int offset,int pageSize){
-        return customThemeMapper.getThemeList(tabId,null,offset,pageSize);
+    public List<ThemeListVO> getThemeListByTabId(String tabRouter,int offset,int pageSize){
+        return customThemeMapper.getThemeList(tabRouter,null,offset,pageSize);
     }
 
     public List<ThemeListVO> getTodayHotTheme(int limit){
         return customThemeMapper.getTodayHotTheme(limit);
     }
 
-    public List<ThemeClass> getHotClassNode(int limit){
-        return customThemeMapper.getHotClassNode(limit);
-    }
+
 }
