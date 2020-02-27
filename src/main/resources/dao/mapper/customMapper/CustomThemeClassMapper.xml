@@ -17,9 +17,7 @@
     </sql>
     
     <select id="getNodesByTabRouter" resultMap="com.guo.technologyforum.dao.mapper.generateMapper.ThemeClassMapper.BaseResultMap">
-        <include refid="selectNodesByTabRouter">
-            <property name="tabRouter" value="#{tabRouter}"/>
-        </include>
+        SELECT c2.* FROM t_theme_class c1 inner JOIN t_theme_class c2 on c1.n_id=c2.n_parentid where c1.c_router=#{tabRouter}
     </select>
     
 </mapper>
