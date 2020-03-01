@@ -3,6 +3,7 @@ package com.guo.technologyforum.service;
 import com.guo.technologyforum.constant.ThemeConstant;
 import com.guo.technologyforum.dao.entity.ThemeClass;
 import com.guo.technologyforum.dao.entity.ThemeClassExample;
+import com.guo.technologyforum.dao.entity.vo.ThemeListVO;
 import com.guo.technologyforum.dao.mapper.customMapper.CustomThemeClassMapper;
 import com.guo.technologyforum.dao.mapper.generateMapper.ThemeClassMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,14 @@ public class ThemeClassService {
 
     public List<ThemeClass> getNodesByTabRouter(String tabRouter){
         return customThemeClassMapper.getNodesByTabRouter(tabRouter);
+    }
+
+    public ThemeClass getThemeClassByThemeClassId(Integer id){
+        return  themeClassMapper.selectByPrimaryKey(id);
+    }
+
+    public void setThemeClassName(List<ThemeListVO> themeClassVOList){
+        themeClassVOList.forEach(themeListVO ->
+                themeListVO.setThemeClassName(getThemeClassByThemeClassId(themeListVO.getTheme().getnThemeClass()).getcName()));
     }
 }

@@ -12,6 +12,17 @@ public class ThemeListVO {
     private Theme theme;
     private ThemeReply lastThemeReply;
     public Integer countReply;
+    public String themeClassName;
+
+    public String getThemeClassName() {
+        return themeClassName;
+    }
+
+    public void setThemeClassName(String themeClassName) {
+        this.themeClassName = themeClassName;
+    }
+
+
 
     public Integer getCountReply() {
         return countReply;

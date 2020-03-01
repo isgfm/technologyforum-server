@@ -5,7 +5,9 @@ import com.guo.technologyforum.constant.ThemeConstant;
 import com.guo.technologyforum.dao.entity.Theme;
 import com.guo.technologyforum.dao.entity.ThemeClass;
 import com.guo.technologyforum.dao.entity.vo.ThemeClassVO;
+import com.guo.technologyforum.dao.entity.vo.ThemeListVO;
 import com.guo.technologyforum.result.Result;
+import com.guo.technologyforum.service.ThemeClassService;
 import com.guo.technologyforum.service.ThemeService;
 import com.guo.technologyforum.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ import java.util.List;
 public class ThemeController {
     @Autowired
     ThemeService themeService;
+
+    @Autowired
+    ThemeClassService themeClassService;
 
     @GetMapping("/test")
     public Result test(){
@@ -41,14 +46,18 @@ public class ThemeController {
     public Result getThemeListByTab(@PathVariable("tabRouter")String tabRouter,
                                     @RequestParam("offset")int offset,
                                     @RequestParam("pageSize")int pageSize){
-        return Result.success(themeService.getThemeListByTabId(tabRouter,offset,pageSize));
+        List<ThemeListVO> themeClassVOList = themeService.getThemeListByTabId(tabRouter,offset,pageSize);
+        themeClassService.setThemeClassName(themeClassVOList);
+        return Result.success(themeClassVOList);
     }
 
     @GetMapping("/themelist/node/{nodeRouter}")
     public Result getThemeListByNode(@PathVariable("nodeRouter")String nodeRouter,
                                      @RequestParam("offset")int offset,
                                      @RequestParam("pageSize")int pageSize){
-        return Result.success(themeService.getThemeListByNodeId(nodeRouter,offset,pageSize));
+        List<ThemeListVO> themeClassVOList = themeService.getThemeListByNodeId(nodeRouter,offset,pageSize);
+        themeClassService.setThemeClassName(themeClassVOList);
+        return Result.success(themeClassVOList);
     }
 
     @GetMapping("/hot")
