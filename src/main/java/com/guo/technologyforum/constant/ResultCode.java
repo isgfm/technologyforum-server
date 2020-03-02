@@ -29,8 +29,8 @@ public enum  ResultCode {
     SYSTEM_INNER_ERROR(40001, "系统繁忙，请稍后重试"),
 
     /* 数据错误：50001-599999 */
-    RESULE_DATA_NONE(50001, "数据未找到"),
-    DATA_IS_WRONG(50002, "数据有误"),
+    RESULE_DATA_NONE(50001, "主题不存在"),
+    DATA_IS_WRONG(50002, "重复插入"),
     DATA_ALREADY_EXISTED(50003, "数据已存在"),
 
     /* 接口错误：60001-69999 */

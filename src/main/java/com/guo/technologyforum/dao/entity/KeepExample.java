@@ -195,66 +195,6 @@ public class KeepExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andNIdIsNull() {
-            addCriterion("n_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andNIdIsNotNull() {
-            addCriterion("n_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andNIdEqualTo(Long value) {
-            addCriterion("n_id =", value, "nId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNIdNotEqualTo(Long value) {
-            addCriterion("n_id <>", value, "nId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNIdGreaterThan(Long value) {
-            addCriterion("n_id >", value, "nId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("n_id >=", value, "nId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNIdLessThan(Long value) {
-            addCriterion("n_id <", value, "nId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNIdLessThanOrEqualTo(Long value) {
-            addCriterion("n_id <=", value, "nId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNIdIn(List<Long> values) {
-            addCriterion("n_id in", values, "nId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNIdNotIn(List<Long> values) {
-            addCriterion("n_id not in", values, "nId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNIdBetween(Long value1, Long value2) {
-            addCriterion("n_id between", value1, value2, "nId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNIdNotBetween(Long value1, Long value2) {
-            addCriterion("n_id not between", value1, value2, "nId");
-            return (Criteria) this;
-        }
-
         public Criteria andNUserIdIsNull() {
             addCriterion("n_user_id is null");
             return (Criteria) this;
@@ -375,66 +315,6 @@ public class KeepExample {
             return (Criteria) this;
         }
 
-        public Criteria andDKeepTimeIsNull() {
-            addCriterion("d_keep_time is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDKeepTimeIsNotNull() {
-            addCriterion("d_keep_time is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDKeepTimeEqualTo(Date value) {
-            addCriterion("d_keep_time =", value, "dKeepTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andDKeepTimeNotEqualTo(Date value) {
-            addCriterion("d_keep_time <>", value, "dKeepTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andDKeepTimeGreaterThan(Date value) {
-            addCriterion("d_keep_time >", value, "dKeepTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andDKeepTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("d_keep_time >=", value, "dKeepTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andDKeepTimeLessThan(Date value) {
-            addCriterion("d_keep_time <", value, "dKeepTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andDKeepTimeLessThanOrEqualTo(Date value) {
-            addCriterion("d_keep_time <=", value, "dKeepTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andDKeepTimeIn(List<Date> values) {
-            addCriterion("d_keep_time in", values, "dKeepTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andDKeepTimeNotIn(List<Date> values) {
-            addCriterion("d_keep_time not in", values, "dKeepTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andDKeepTimeBetween(Date value1, Date value2) {
-            addCriterion("d_keep_time between", value1, value2, "dKeepTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andDKeepTimeNotBetween(Date value1, Date value2) {
-            addCriterion("d_keep_time not between", value1, value2, "dKeepTime");
-            return (Criteria) this;
-        }
-
         public Criteria andNTypeIsNull() {
             addCriterion("n_type is null");
             return (Criteria) this;
@@ -492,6 +372,136 @@ public class KeepExample {
 
         public Criteria andNTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("n_type not between", value1, value2, "nType");
+            return (Criteria) this;
+        }
+
+        public Criteria andCIdIsNull() {
+            addCriterion("c_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCIdIsNotNull() {
+            addCriterion("c_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCIdEqualTo(String value) {
+            addCriterion("c_id =", value, "cId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCIdNotEqualTo(String value) {
+            addCriterion("c_id <>", value, "cId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCIdGreaterThan(String value) {
+            addCriterion("c_id >", value, "cId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCIdGreaterThanOrEqualTo(String value) {
+            addCriterion("c_id >=", value, "cId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCIdLessThan(String value) {
+            addCriterion("c_id <", value, "cId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCIdLessThanOrEqualTo(String value) {
+            addCriterion("c_id <=", value, "cId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCIdLike(String value) {
+            addCriterion("c_id like", value, "cId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCIdNotLike(String value) {
+            addCriterion("c_id not like", value, "cId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCIdIn(List<String> values) {
+            addCriterion("c_id in", values, "cId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCIdNotIn(List<String> values) {
+            addCriterion("c_id not in", values, "cId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCIdBetween(String value1, String value2) {
+            addCriterion("c_id between", value1, value2, "cId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCIdNotBetween(String value1, String value2) {
+            addCriterion("c_id not between", value1, value2, "cId");
+            return (Criteria) this;
+        }
+
+        public Criteria andDKeepTimeIsNull() {
+            addCriterion("d_keep_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDKeepTimeIsNotNull() {
+            addCriterion("d_keep_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDKeepTimeEqualTo(Date value) {
+            addCriterion("d_keep_time =", value, "dKeepTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDKeepTimeNotEqualTo(Date value) {
+            addCriterion("d_keep_time <>", value, "dKeepTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDKeepTimeGreaterThan(Date value) {
+            addCriterion("d_keep_time >", value, "dKeepTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDKeepTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("d_keep_time >=", value, "dKeepTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDKeepTimeLessThan(Date value) {
+            addCriterion("d_keep_time <", value, "dKeepTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDKeepTimeLessThanOrEqualTo(Date value) {
+            addCriterion("d_keep_time <=", value, "dKeepTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDKeepTimeIn(List<Date> values) {
+            addCriterion("d_keep_time in", values, "dKeepTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDKeepTimeNotIn(List<Date> values) {
+            addCriterion("d_keep_time not in", values, "dKeepTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDKeepTimeBetween(Date value1, Date value2) {
+            addCriterion("d_keep_time between", value1, value2, "dKeepTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDKeepTimeNotBetween(Date value1, Date value2) {
+            addCriterion("d_keep_time not between", value1, value2, "dKeepTime");
             return (Criteria) this;
         }
     }
