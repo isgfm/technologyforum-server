@@ -13,4 +13,7 @@ public final class ThemeConstant {
 
     /** node默认深度*/
     public static int THEME_CLASS_NODE_DEFAULT_DEPTH = 2;
+
+    /** 主题点击初始值*/
+    public static int THEME_CLICK_INITIAL = 1;
 }

@@ -9,6 +9,8 @@ import com.guo.technologyforum.dao.entity.Theme;
 import com.guo.technologyforum.dao.entity.ThemeClass;
 import com.guo.technologyforum.dao.entity.vo.ThemeClassVO;
 import com.guo.technologyforum.dao.entity.vo.ThemeListVO;
+import com.guo.technologyforum.redis.RedisService;
+import com.guo.technologyforum.redis.prefix.ThemeClickKey;
 import com.guo.technologyforum.result.Result;
 import com.guo.technologyforum.service.KeepService;
 import com.guo.technologyforum.service.ThemeClassService;
@@ -17,6 +19,8 @@ import com.guo.technologyforum.util.CommonUtil;
 import com.guo.technologyforum.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,6 +37,9 @@ public class ThemeController {
 
     @Autowired
     KeepService keepService;
+
+    @Autowired
+    RedisService redisService;
 
     @GetMapping("/test")
     public Result test(){
@@ -95,5 +102,16 @@ public class ThemeController {
         return result;
     }
 
+
+    //redis存点击量
+    @GetMapping("click")
+    @CheckThemeExist
+    public Result click(@RequestParam("id")long id){
+        Boolean absent = redisService.setIfAbsent(ThemeClickKey.themeClickKey, String.valueOf(id),ThemeConstant.THEME_CLICK_INITIAL);
+        if(!absent){
+            redisService.increment(ThemeClickKey.themeClickKey, String.valueOf(id));
+        }
+        return Result.success();
+    }
 
 }

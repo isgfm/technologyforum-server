@@ -57,5 +57,5 @@ public class RedisManage {
         return redisTemplate.hasKey(key);
     }
 
-
+    public Boolean setIfAbsent(String key,Object value){return redisTemplate.opsForValue().setIfAbsent(key,value);}
 }

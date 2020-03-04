@@ -53,5 +53,10 @@ public class RedisService {
         return redisManage.increment(realKey);
     }
 
+    public Boolean setIfAbsent(BasePrefix basePreFix, String key, Object value){
+        String realKey = basePreFix.getPreFix()+key;
+        return redisManage.setIfAbsent(realKey,value);
+    }
+
     public RedisManage getRedisManage(){return redisManage;}
 }
