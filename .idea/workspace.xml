@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23030701-4ed2-462c-8a10-2ba895970cbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ThemeReplyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/ThemeReplyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/vo/ThemeReplyVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ThemeReplyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ThemeReplyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/ThemeReplyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/ThemeReplyService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,8 +44,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../idea/test" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../idea/dish_recommend" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -115,7 +116,8 @@
       <workItem from="1582681489741" duration="14482000" />
       <workItem from="1582773237425" duration="3621000" />
       <workItem from="1583046110365" duration="29850000" />
-      <workItem from="1583405092853" duration="1811000" />
+      <workItem from="1583405092853" duration="3021000" />
+      <workItem from="1583543050408" duration="7146000" />
     </task>
     <servers />
   </component>
