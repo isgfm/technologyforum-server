@@ -6,7 +6,7 @@ import com.guo.technologyforum.dao.entity.User;
 import org.apache.ibatis.type.Alias;
 
 
-public class ThemeListVO {
+public class ThemeVO {
 
     private User themeOwner;
     private Theme theme;
@@ -32,7 +32,7 @@ public class ThemeListVO {
         this.countReply = countReply;
     }
 
-    public ThemeListVO() {
+    public ThemeVO() {
     }
 
     public User getThemeOwner() {

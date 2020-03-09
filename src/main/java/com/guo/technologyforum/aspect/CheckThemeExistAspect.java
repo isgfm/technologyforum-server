@@ -2,13 +2,11 @@ package com.guo.technologyforum.aspect;
 
 import com.guo.technologyforum.constant.ResultCode;
 import com.guo.technologyforum.dao.entity.Theme;
-import com.guo.technologyforum.dao.entity.ThemeClass;
 import com.guo.technologyforum.result.Result;
 import com.guo.technologyforum.service.ThemeService;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -35,7 +33,7 @@ public class CheckThemeExistAspect {
         Object[] args = point.getArgs();
         long themeId = (long) args[0];
         Result result = new Result();
-        Optional<Theme> themeOptional = themeService.getThemeById(themeId);
+        Optional<Theme> themeOptional = themeService.getThemeByThemeId(themeId);
         if(themeOptional.isPresent())
             return point.proceed();
 

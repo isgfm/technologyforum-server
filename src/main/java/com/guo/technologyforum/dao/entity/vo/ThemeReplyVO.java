@@ -1,6 +1,7 @@
 package com.guo.technologyforum.dao.entity.vo;
 
 import com.guo.technologyforum.dao.entity.ThemeReply;
+import com.guo.technologyforum.dao.entity.bo.ThemeReplyBO;
 
 import java.util.List;
 
@@ -11,22 +12,36 @@ import java.util.List;
  **/
 public final class ThemeReplyVO {
 
-    private List<ThemeReply> themeReplyList;
+    private List<ThemeReplyBO> themeReplyBOList;
     private long totalReply;
+    private ThemeReply lastThemeReply;
+
+    public ThemeReplyVO(List<ThemeReplyBO> themeReplyBOList, long totalReply, ThemeReply lastThemeReply) {
+        this.themeReplyBOList = themeReplyBOList;
+        this.totalReply = totalReply;
+        this.lastThemeReply = lastThemeReply;
+    }
+
+    public ThemeReply getLastThemeReply() {
+        return lastThemeReply;
+    }
+
+    public void setLastThemeReply(ThemeReply lastThemeReply) {
+        this.lastThemeReply = lastThemeReply;
+    }
+
+
     public ThemeReplyVO() {
     }
 
-    public ThemeReplyVO(List<ThemeReply> themeReplyList, int totalReply) {
-        this.themeReplyList = themeReplyList;
-        this.totalReply = totalReply;
+
+
+    public List<ThemeReplyBO> getThemeReplyBOList() {
+        return themeReplyBOList;
     }
 
-    public List<ThemeReply> getThemeReplyList() {
-        return themeReplyList;
-    }
-
-    public void setThemeReplyList(List<ThemeReply> themeReplyList) {
-        this.themeReplyList = themeReplyList;
+    public void setThemeReplyBOList(List<ThemeReplyBO> themeReplyBOList) {
+        this.themeReplyBOList = themeReplyBOList;
     }
 
     public long getTotalReply() {

@@ -2,21 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.guo.technologyforum.dao.mapper.customMapper.CustomThemeMapper">
 
-    <resultMap type="themeListVO" id="themeListVOResultMap">
+    <resultMap type="themeVO" id="themeVOResultMap">
 <!--        顺序很重要, 必须要一致,constructor ,  id   result  association-->
         <result property="countReply" column="countReply"/>
         <association property="lastThemeReply" javaType="themeReply"
                      resultMap="com.guo.technologyforum.dao.mapper.generateMapper.ThemeReplyMapper.BaseResultMap"
                      columnPrefix="themeReply_"/>
-
         <association property="theme" javaType="theme"
                      resultMap="com.guo.technologyforum.dao.mapper.generateMapper.ThemeMapper.BaseResultMap"
                      columnPrefix="theme_"/>
-
         <association property="themeOwner" javaType="user"
                      resultMap="com.guo.technologyforum.dao.mapper.generateMapper.UserMapper.BaseResultMap"
                      columnPrefix="user_"/>
+    </resultMap>
 
+    <resultMap type="themeVO" id="simpleThemeVOResultMap">
+        <association property="theme" javaType="theme"
+                     resultMap="com.guo.technologyforum.dao.mapper.generateMapper.ThemeMapper.BaseResultMap"
+                     columnPrefix="theme_"/>
+        <association property="themeOwner" javaType="user"
+                     resultMap="com.guo.technologyforum.dao.mapper.generateMapper.UserMapper.BaseResultMap"
+                     columnPrefix="user_"/>
     </resultMap>
 
     <sql id="themeListColum">
@@ -55,7 +61,7 @@
         offset ${offset}
     </sql>
 
-    <select id="getTodayHotTheme" resultMap="themeListVOResultMap">
+    <select id="getTodayHotTheme" resultMap="themeVOResultMap">
         <include refid="themeListColum"></include>
         where date(t_theme.d_create_time) = curdate()
         GROUP BY t_theme.n_id
@@ -72,7 +78,7 @@
         limit ${limit}
     </sql>
 
-    <select id="getThemeList" resultMap="themeListVOResultMap">
+    <select id="getThemeList" resultMap="themeVOResultMap">
         <include refid="themeListSql">
             <property name="tabRouter" value="#{tabRouter}"/>
             <property name="nodeRouter" value="#{nodeRouter}"/>
@@ -81,7 +87,7 @@
         </include>
     </select>
 
-    <select id="getThemeListByNodeId" resultMap="themeListVOResultMap">
+    <select id="getThemeListByNodeId" resultMap="themeVOResultMap">
         <include refid="themeListSql">
             <property name="nodeRouter" value="#{nodeRouter}"/>
             <property name="tabRouter" value="#{tabRouter}"/>
@@ -90,4 +96,19 @@
         </include>
     </select>
 
+    <select id="getThemeVOByThemeId"  resultMap="simpleThemeVOResultMap">
+        select
+        <include refid="com.guo.technologyforum.dao.mapper.customMapper.CustomSql.prefixTheme">
+            <property name="tabAlias" value="t_theme"/>
+            <property name="prefix" value="theme_"/>
+        </include>,
+        <include refid="com.guo.technologyforum.dao.mapper.customMapper.CustomSql.prefixUser">
+            <property name="tabAlias" value="t_user"/>
+            <property name="prefix" value="user_"/>
+        </include>
+        from
+        t_theme left join t_user on t_theme.n_user_id=t_user.n_id
+        where t_theme.n_id=#{themeId}
+    </select>
+    
 </mapper>

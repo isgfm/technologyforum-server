@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/themeReply")
+@RequestMapping("api/themereply")
 public class ThemeReplyController {
 
     @Autowired
@@ -19,8 +19,10 @@ public class ThemeReplyController {
     @GetMapping("")
     public Result getThemeReply(@RequestParam("themeId")long themeId,@RequestParam("page")int page,@RequestParam("pageSize")int pageSize){
         ThemeReplyVO themeReplyVO = new ThemeReplyVO();
-        themeReplyVO.setThemeReplyList(themeReplyService.getThemeReply(themeId,page,pageSize));
-        themeReplyVO.setTotalReply(themeId);
+        themeReplyVO.setThemeReplyBOList(themeReplyService.getThemeReplyBOList(themeId,page,pageSize));
+        themeReplyVO.setTotalReply(themeReplyService.countThemeReply(themeId));
+        if(themeReplyVO.getTotalReply()>0)
+            themeReplyVO.setLastThemeReply(themeReplyService.getLastThemeReply(themeId).get());
         return Result.success(themeReplyVO);
     }
 

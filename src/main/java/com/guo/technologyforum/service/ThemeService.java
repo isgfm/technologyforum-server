@@ -1,13 +1,8 @@
 package com.guo.technologyforum.service;
 
-import com.guo.technologyforum.constant.ThemeConstant;
-import com.guo.technologyforum.dao.entity.Keep;
 import com.guo.technologyforum.dao.entity.Theme;
-import com.guo.technologyforum.dao.entity.ThemeClass;
-import com.guo.technologyforum.dao.entity.ThemeClassExample;
-import com.guo.technologyforum.dao.entity.vo.ThemeListVO;
+import com.guo.technologyforum.dao.entity.vo.ThemeVO;
 import com.guo.technologyforum.dao.mapper.customMapper.CustomThemeMapper;
-import com.guo.technologyforum.dao.mapper.generateMapper.ThemeClassMapper;
 import com.guo.technologyforum.dao.mapper.generateMapper.ThemeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,21 +27,23 @@ public class ThemeService {
         return themeMapper.insert(theme);
     }
 
-    public List<ThemeListVO> getThemeListByNodeId(String nodeRouter,int offset,int pageSize){
+    public List<ThemeVO> getThemeListByNodeId(String nodeRouter, int offset, int pageSize){
         return customThemeMapper.getThemeList(null,nodeRouter,offset,pageSize);
     }
 
-    public List<ThemeListVO> getThemeListByTabId(String tabRouter,int offset,int pageSize){
+    public List<ThemeVO> getThemeListByTabId(String tabRouter, int offset, int pageSize){
         return customThemeMapper.getThemeList(tabRouter,null,offset,pageSize);
     }
 
-    public List<ThemeListVO> getTodayHotTheme(int limit){
+    public List<ThemeVO> getTodayHotTheme(int limit){
         return customThemeMapper.getTodayHotTheme(limit);
     }
 
-    public Optional<Theme> getThemeById(long id){
-        return Optional.ofNullable(themeMapper.selectByPrimaryKey(id));
+    public Optional<Theme> getThemeByThemeId(long themeId){
+        return Optional.ofNullable(themeMapper.selectByPrimaryKey(themeId));
     }
 
-
+    public Optional<ThemeVO> getThemeVOByThemeId(long themeId){
+        return Optional.ofNullable(customThemeMapper.getThemeVOByThemeId(themeId));
+    }
 }

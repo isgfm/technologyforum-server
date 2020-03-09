@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guo.technologyforum.dao.mapper.customMapper.CustomThemeReplyMapper">
+    <resultMap id="themeReplyBO" type="ThemeReplyBO">
+        <association property="themeReply" javaType="themeReply"
+                     resultMap="com.guo.technologyforum.dao.mapper.generateMapper.ThemeReplyMapper.BaseResultMap"
+                     columnPrefix="themeReply_"/>
+        <association property="themeReplyOwner" javaType="user"
+                     resultMap="com.guo.technologyforum.dao.mapper.generateMapper.UserMapper.BaseResultMap"
+                     columnPrefix="user_"/>
+    </resultMap>
+
+    <select id="getThemeReplyBOByThemeId" resultMap="themeReplyBO">
+        select
+        <include refid="com.guo.technologyforum.dao.mapper.customMapper.CustomSql.prefixUser">
+            <property name="tabAlias" value="t_user"/>
+            <property name="prefix" value="user_"/>
+        </include>,
+        <include refid="com.guo.technologyforum.dao.mapper.customMapper.CustomSql.prefixThemeReply">
+            <property name="tabAlias" value="reply"/>
+            <property name="prefix" value="themeReply_"/>
+        </include>
+        from t_theme_reply reply left join t_user on reply.n_user_id = t_user.n_id
+        where reply.n_theme_id=#{themeId}
+        order by reply.d_reply_time asc
+        limit #{pageSize}
+        offset #{offset}
+    </select>
+
+</mapper>

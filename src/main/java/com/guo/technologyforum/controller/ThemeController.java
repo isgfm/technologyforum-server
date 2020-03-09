@@ -6,9 +6,7 @@ import com.guo.technologyforum.constant.ResultCode;
 import com.guo.technologyforum.constant.ThemeConstant;
 import com.guo.technologyforum.dao.entity.Keep;
 import com.guo.technologyforum.dao.entity.Theme;
-import com.guo.technologyforum.dao.entity.ThemeClass;
-import com.guo.technologyforum.dao.entity.vo.ThemeClassVO;
-import com.guo.technologyforum.dao.entity.vo.ThemeListVO;
+import com.guo.technologyforum.dao.entity.vo.ThemeVO;
 import com.guo.technologyforum.redis.RedisService;
 import com.guo.technologyforum.redis.prefix.ThemeClickKey;
 import com.guo.technologyforum.result.Result;
@@ -19,11 +17,10 @@ import com.guo.technologyforum.util.CommonUtil;
 import com.guo.technologyforum.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -61,18 +58,18 @@ public class ThemeController {
     public Result getThemeListByTab(@PathVariable("tabRouter")String tabRouter,
                                     @RequestParam("offset")int offset,
                                     @RequestParam("pageSize")int pageSize){
-        List<ThemeListVO> themeClassVOList = themeService.getThemeListByTabId(tabRouter,offset,pageSize);
-        themeClassService.setThemeClassName(themeClassVOList);
-        return Result.success(themeClassVOList);
+        List<ThemeVO> themeVOList = themeService.getThemeListByTabId(tabRouter,offset,pageSize);
+        themeClassService.setThemeClassName(themeVOList);
+        return Result.success(themeVOList);
     }
 
     @GetMapping("/themelist/node/{nodeRouter}")
     public Result getThemeListByNode(@PathVariable("nodeRouter")String nodeRouter,
                                      @RequestParam("offset")int offset,
                                      @RequestParam("pageSize")int pageSize){
-        List<ThemeListVO> themeClassVOList = themeService.getThemeListByNodeId(nodeRouter,offset,pageSize);
-        themeClassService.setThemeClassName(themeClassVOList);
-        return Result.success(themeClassVOList);
+        List<ThemeVO> themeVOList = themeService.getThemeListByNodeId(nodeRouter,offset,pageSize);
+        themeClassService.setThemeClassName(themeVOList);
+        return Result.success(themeVOList);
     }
 
     @GetMapping("/hot")
@@ -102,6 +99,18 @@ public class ThemeController {
         return result;
     }
 
+
+    @GetMapping("/{themeId}")
+    public Result getThemeByThemeIdId(@PathVariable("themeId")long themeId){
+        Optional<ThemeVO> optionalThemeVO = themeService.getThemeVOByThemeId(themeId);
+        if(optionalThemeVO.isPresent()){
+            ThemeVO themeVO = optionalThemeVO.get();
+            themeVO.setThemeClassName(themeClassService.getThemeClassByThemeClassId(themeVO.getTheme().getnThemeClass()).getcName());
+            return Result.success(themeVO);
+        }
+        else
+            return Result.customize(ResultCode.RESULE_DATA_NONE,Result.VALUE_NULL);
+    }
 
     //redis存点击量
     @GetMapping("click")

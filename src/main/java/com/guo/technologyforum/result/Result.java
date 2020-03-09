@@ -8,6 +8,8 @@ import java.util.Map;
 
 public class Result implements Serializable {
     private static final long serialVersionUID = 6458519873284778530L;
+    public static Object VALUE_NULL = null;
+
     private Object data;
     private Integer code;
     private String message;
