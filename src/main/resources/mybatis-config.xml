@@ -4,6 +4,7 @@
 <configuration>
     <settings>
         <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <setting name="returnInstanceForEmptyRow" value="true"/>
         <setting name="callSettersOnNulls" value="true"/>
     </settings>
     <typeAliases>

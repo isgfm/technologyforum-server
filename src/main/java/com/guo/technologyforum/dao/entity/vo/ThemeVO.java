@@ -10,7 +10,7 @@ public class ThemeVO {
 
     private User themeOwner;
     private Theme theme;
-    private ThemeReply lastThemeReply;
+    private ThemeReply lastThemeReply = new ThemeReply();
     public Integer countReply;
     public String themeClassName;
 
