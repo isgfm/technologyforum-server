@@ -41,6 +41,11 @@ public class UserController {
         }
     }
 
+    @GetMapping("/users/themereply")
+    public Result themeReplyUserList(@RequestParam("themeId")long themeId){
+        return Result.success(userService.getUserListFromThemeReply(themeId));
+    }
+
     @GetMapping("/allUser")
     public  Result allUser(){
         return Result.success(JsonUtil.ListToJsonString(userService.getAllUser()));

@@ -2,6 +2,7 @@ package com.guo.technologyforum.service;
 
 import com.guo.technologyforum.dao.entity.User;
 import com.guo.technologyforum.dao.entity.UserExample;
+import com.guo.technologyforum.dao.mapper.customMapper.CustomUserMapper;
 import com.guo.technologyforum.dao.mapper.generateMapper.UserMapper;
 import com.guo.technologyforum.util.CommonUtil;
 import com.guo.technologyforum.util.EncryptUtil;
@@ -16,6 +17,13 @@ import java.util.Optional;
 public class UserService {
     @Autowired
     UserMapper userMapper;
+
+    @Autowired
+    CustomUserMapper customUserMapper;
+
+    public List<User> getUserListFromThemeReply(long themeId){
+        return customUserMapper.getUserListFromThemeReply(themeId);
+    }
 
     public void encryptUserPassword(User user){
         user.setcSalt(EncryptUtil.getRandSalt());

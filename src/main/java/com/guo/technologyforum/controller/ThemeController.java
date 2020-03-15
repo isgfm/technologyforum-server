@@ -80,13 +80,13 @@ public class ThemeController {
     @GetMapping("/kepp")
     @RequireLogin
     @CheckThemeExist
-    public Result keepTheme(@RequestParam("id")long id){
+    public Result keepTheme(@RequestParam("themeId")long themeId){
         long userId = UserUtil.currentUser().get().getnId();
         Keep keep = new Keep();
         keep.setcId(UUID.randomUUID().toString());
         keep.setnUserId(userId);
         keep.setdKeepTime(CommonUtil.getNowDate());
-        keep.setnThemeId(id);
+        keep.setnThemeId(themeId);
         Result result = new Result();
 
         try {

@@ -54,4 +54,8 @@ public class ThemeReplyService {
         else
             return Optional.empty();
     }
+
+    public int addThemeReply(ThemeReply themeReply){
+        return themeReplyMapper.insert(themeReply);
+    }
 }
