@@ -385,52 +385,52 @@ public class NotifyExample {
             return (Criteria) this;
         }
 
-        public Criteria andNReceiveUserIdEqualTo(Integer value) {
+        public Criteria andNReceiveUserIdEqualTo(Long value) {
             addCriterion("n_receive_user_id =", value, "nReceiveUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNReceiveUserIdNotEqualTo(Integer value) {
+        public Criteria andNReceiveUserIdNotEqualTo(Long value) {
             addCriterion("n_receive_user_id <>", value, "nReceiveUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNReceiveUserIdGreaterThan(Integer value) {
+        public Criteria andNReceiveUserIdGreaterThan(Long value) {
             addCriterion("n_receive_user_id >", value, "nReceiveUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNReceiveUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andNReceiveUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("n_receive_user_id >=", value, "nReceiveUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNReceiveUserIdLessThan(Integer value) {
+        public Criteria andNReceiveUserIdLessThan(Long value) {
             addCriterion("n_receive_user_id <", value, "nReceiveUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNReceiveUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andNReceiveUserIdLessThanOrEqualTo(Long value) {
             addCriterion("n_receive_user_id <=", value, "nReceiveUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNReceiveUserIdIn(List<Integer> values) {
+        public Criteria andNReceiveUserIdIn(List<Long> values) {
             addCriterion("n_receive_user_id in", values, "nReceiveUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNReceiveUserIdNotIn(List<Integer> values) {
+        public Criteria andNReceiveUserIdNotIn(List<Long> values) {
             addCriterion("n_receive_user_id not in", values, "nReceiveUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNReceiveUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andNReceiveUserIdBetween(Long value1, Long value2) {
             addCriterion("n_receive_user_id between", value1, value2, "nReceiveUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNReceiveUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andNReceiveUserIdNotBetween(Long value1, Long value2) {
             addCriterion("n_receive_user_id not between", value1, value2, "nReceiveUserId");
             return (Criteria) this;
         }

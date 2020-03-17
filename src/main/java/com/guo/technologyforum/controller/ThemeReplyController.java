@@ -45,6 +45,8 @@ public class ThemeReplyController {
         themeReply.setdReplyTime(CommonUtil.getNowDate());
         themeReply.setdLastupdateTime(CommonUtil.getNowDate());
         themeReplyService.addThemeReply(themeReply);
+
+        notifyService.notifyCauseByThemeReply(userIdList,currentUser,themeReply.getnThemeId());
         return Result.success();
     }
 

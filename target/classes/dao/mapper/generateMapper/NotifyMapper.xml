@@ -9,7 +9,7 @@
     <id column="n_id" jdbcType="BIGINT" property="nId" />
     <result column="n_send_user_id" jdbcType="BIGINT" property="nSendUserId" />
     <result column="n_notify_type" jdbcType="INTEGER" property="nNotifyType" />
-    <result column="n_receive_user_id" jdbcType="INTEGER" property="nReceiveUserId" />
+    <result column="n_receive_user_id" jdbcType="BIGINT" property="nReceiveUserId" />
     <result column="b_status" jdbcType="BIT" property="bStatus" />
     <result column="d_create_time" jdbcType="TIMESTAMP" property="dCreateTime" />
     <result column="d_read_time" jdbcType="TIMESTAMP" property="dReadTime" />
@@ -144,7 +144,7 @@
       n_receive_user_id, b_status, d_create_time, 
       d_read_time, c_message)
     values (#{nId,jdbcType=BIGINT}, #{nSendUserId,jdbcType=BIGINT}, #{nNotifyType,jdbcType=INTEGER}, 
-      #{nReceiveUserId,jdbcType=INTEGER}, #{bStatus,jdbcType=BIT}, #{dCreateTime,jdbcType=TIMESTAMP}, 
+      #{nReceiveUserId,jdbcType=BIGINT}, #{bStatus,jdbcType=BIT}, #{dCreateTime,jdbcType=TIMESTAMP}, 
       #{dReadTime,jdbcType=TIMESTAMP}, #{cMessage,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.guo.technologyforum.dao.entity.Notify">
@@ -190,7 +190,7 @@
         #{nNotifyType,jdbcType=INTEGER},
       </if>
       <if test="nReceiveUserId != null">
-        #{nReceiveUserId,jdbcType=INTEGER},
+        #{nReceiveUserId,jdbcType=BIGINT},
       </if>
       <if test="bStatus != null">
         #{bStatus,jdbcType=BIT},
@@ -233,7 +233,7 @@
         n_notify_type = #{record.nNotifyType,jdbcType=INTEGER},
       </if>
       <if test="record.nReceiveUserId != null">
-        n_receive_user_id = #{record.nReceiveUserId,jdbcType=INTEGER},
+        n_receive_user_id = #{record.nReceiveUserId,jdbcType=BIGINT},
       </if>
       <if test="record.bStatus != null">
         b_status = #{record.bStatus,jdbcType=BIT},
@@ -261,7 +261,7 @@
     set n_id = #{record.nId,jdbcType=BIGINT},
       n_send_user_id = #{record.nSendUserId,jdbcType=BIGINT},
       n_notify_type = #{record.nNotifyType,jdbcType=INTEGER},
-      n_receive_user_id = #{record.nReceiveUserId,jdbcType=INTEGER},
+      n_receive_user_id = #{record.nReceiveUserId,jdbcType=BIGINT},
       b_status = #{record.bStatus,jdbcType=BIT},
       d_create_time = #{record.dCreateTime,jdbcType=TIMESTAMP},
       d_read_time = #{record.dReadTime,jdbcType=TIMESTAMP},
@@ -284,7 +284,7 @@
         n_notify_type = #{nNotifyType,jdbcType=INTEGER},
       </if>
       <if test="nReceiveUserId != null">
-        n_receive_user_id = #{nReceiveUserId,jdbcType=INTEGER},
+        n_receive_user_id = #{nReceiveUserId,jdbcType=BIGINT},
       </if>
       <if test="bStatus != null">
         b_status = #{bStatus,jdbcType=BIT},
@@ -309,7 +309,7 @@
     update t_notify
     set n_send_user_id = #{nSendUserId,jdbcType=BIGINT},
       n_notify_type = #{nNotifyType,jdbcType=INTEGER},
-      n_receive_user_id = #{nReceiveUserId,jdbcType=INTEGER},
+      n_receive_user_id = #{nReceiveUserId,jdbcType=BIGINT},
       b_status = #{bStatus,jdbcType=BIT},
       d_create_time = #{dCreateTime,jdbcType=TIMESTAMP},
       d_read_time = #{dReadTime,jdbcType=TIMESTAMP},
