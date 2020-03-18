@@ -6,6 +6,7 @@ import com.guo.technologyforum.constant.ResultCode;
 import com.guo.technologyforum.constant.ThemeConstant;
 import com.guo.technologyforum.dao.entity.Keep;
 import com.guo.technologyforum.dao.entity.Theme;
+import com.guo.technologyforum.dao.entity.vo.ThemePageVO;
 import com.guo.technologyforum.dao.entity.vo.ThemeVO;
 import com.guo.technologyforum.redis.RedisService;
 import com.guo.technologyforum.redis.prefix.ThemeClickKey;
@@ -56,20 +57,20 @@ public class ThemeController {
 
     @GetMapping("/themelist/tab/{tabRouter}")
     public Result getThemeListByTab(@PathVariable("tabRouter")String tabRouter,
-                                    @RequestParam("offset")int offset,
+                                    @RequestParam("page")int page,
                                     @RequestParam("pageSize")int pageSize){
-        List<ThemeVO> themeVOList = themeService.getThemeListByTabId(tabRouter,offset,pageSize);
+        List<ThemeVO> themeVOList = themeService.getThemeListByTabId(tabRouter,page,pageSize);
         themeClassService.setThemeClassName(themeVOList);
         return Result.success(themeVOList);
     }
 
     @GetMapping("/themelist/node/{nodeRouter}")
     public Result getThemeListByNode(@PathVariable("nodeRouter")String nodeRouter,
-                                     @RequestParam("offset")int offset,
+                                     @RequestParam("page")int page,
                                      @RequestParam("pageSize")int pageSize){
-        List<ThemeVO> themeVOList = themeService.getThemeListByNodeId(nodeRouter,offset,pageSize);
-        themeClassService.setThemeClassName(themeVOList);
-        return Result.success(themeVOList);
+        List<ThemeVO> themeVOList = themeService.getThemeListByNodeId(nodeRouter,page,pageSize);
+        ThemePageVO themePageVO = new ThemePageVO(themeVOList,themeService.countThemeByNodeRouter(nodeRouter));
+        return Result.success(themePageVO);
     }
 
     @GetMapping("/hot")

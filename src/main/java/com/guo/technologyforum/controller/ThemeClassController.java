@@ -1,7 +1,9 @@
 package com.guo.technologyforum.controller;
 
+import com.guo.technologyforum.constant.ResultCode;
 import com.guo.technologyforum.constant.ThemeConstant;
 import com.guo.technologyforum.dao.entity.ThemeClass;
+import com.guo.technologyforum.dao.entity.vo.ThemeClassNodeVO;
 import com.guo.technologyforum.dao.entity.vo.ThemeClassVO;
 import com.guo.technologyforum.result.Result;
 import com.guo.technologyforum.service.ThemeClassService;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/themeclass")
@@ -35,10 +38,22 @@ public class ThemeClassController {
         return Result.success(themeClassService.getHomeTabs());
     }
 
-    @GetMapping("/node")
-    public Result getNode(@RequestParam("tabRouter") String tabRouter){
+    @GetMapping("/nodelist")
+    public Result getNodeList(@RequestParam("tabRouter") String tabRouter){
         return Result.success(themeClassService.getNodesByTabRouter(tabRouter));
     }
+
+    @GetMapping("/node")
+    public Result getNode(@RequestParam("nodeRouter") String nodeRouter){
+        Optional<ThemeClassNodeVO> themeClassNodeVO = themeClassService.getThemeClassByRouter(nodeRouter);
+        if(themeClassNodeVO.isPresent())
+            return Result.success(themeClassNodeVO.get());
+
+        return Result.customize(ResultCode.THEMECLASS_DATA_NONE,null);
+    }
+
+
+
 
 
     @GetMapping("/homeclass")

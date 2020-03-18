@@ -16,4 +16,5 @@ public interface CustomThemeMapper {
 
     ThemeVO getThemeVOByThemeId(long themeId);
 
+    Long countThemeByNodeRouter(String nodeRouter);
 }

@@ -3,6 +3,7 @@ package com.guo.technologyforum.service;
 import com.guo.technologyforum.constant.ThemeConstant;
 import com.guo.technologyforum.dao.entity.ThemeClass;
 import com.guo.technologyforum.dao.entity.ThemeClassExample;
+import com.guo.technologyforum.dao.entity.vo.ThemeClassNodeVO;
 import com.guo.technologyforum.dao.entity.vo.ThemeVO;
 import com.guo.technologyforum.dao.mapper.customMapper.CustomThemeClassMapper;
 import com.guo.technologyforum.dao.mapper.generateMapper.ThemeClassMapper;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ThemeClassService {
@@ -50,5 +52,17 @@ public class ThemeClassService {
     public void setThemeClassName(List<ThemeVO> themeClassVOList){
         themeClassVOList.forEach(themeVO ->
                 themeVO.setThemeClassName(getThemeClassByThemeClassId(themeVO.getTheme().getnThemeClass()).getcName()));
+    }
+
+    public Optional<ThemeClassNodeVO> getThemeClassByRouter(String nodeRouter){
+//        ThemeClassExample themeClassExample = new ThemeClassExample();
+//        ThemeClassExample.Criteria criteria = themeClassExample.createCriteria();
+//        criteria.andCRouterEqualTo(router);
+//        List<ThemeClass> themeClasses = themeClassMapper.selectByExample(themeClassExample);
+//        if(themeClasses.size()==0)
+//            return Optional.ofNullable(null);
+//        else
+//            return Optional.of(themeClasses.get(0));
+        return Optional.ofNullable(customThemeClassMapper.getNodeVOByNodeRouter(nodeRouter));
     }
 }

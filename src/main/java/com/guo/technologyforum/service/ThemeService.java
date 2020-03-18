@@ -27,12 +27,12 @@ public class ThemeService {
         return themeMapper.insert(theme);
     }
 
-    public List<ThemeVO> getThemeListByNodeId(String nodeRouter, int offset, int pageSize){
-        return customThemeMapper.getThemeList(null,nodeRouter,offset,pageSize);
+    public List<ThemeVO> getThemeListByNodeId(String nodeRouter, int page, int pageSize){
+        return customThemeMapper.getThemeList(null,nodeRouter,(page-1)*pageSize,pageSize);
     }
 
-    public List<ThemeVO> getThemeListByTabId(String tabRouter, int offset, int pageSize){
-        return customThemeMapper.getThemeList(tabRouter,null,offset,pageSize);
+    public List<ThemeVO> getThemeListByTabId(String tabRouter, int page, int pageSize){
+        return customThemeMapper.getThemeList(tabRouter,null,(page-1)*pageSize,pageSize);
     }
 
     public List<ThemeVO> getTodayHotTheme(int limit){
@@ -45,5 +45,9 @@ public class ThemeService {
 
     public Optional<ThemeVO> getThemeVOByThemeId(long themeId){
         return Optional.ofNullable(customThemeMapper.getThemeVOByThemeId(themeId));
+    }
+
+    public Long countThemeByNodeRouter(String nodeRouter){
+        return customThemeMapper.countThemeByNodeRouter(nodeRouter);
     }
 }
