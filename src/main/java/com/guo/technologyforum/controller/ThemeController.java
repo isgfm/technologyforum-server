@@ -57,7 +57,7 @@ public class ThemeController {
 
     @GetMapping("/userthemes/{userId}")
     public Result getThemesByUserId(@PathVariable("userId")long userId){
-        
+
     }
 
     @GetMapping("/themelist/tab/{tabRouter}")
