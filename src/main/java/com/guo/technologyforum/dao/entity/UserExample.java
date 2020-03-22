@@ -1015,6 +1015,76 @@ public class UserExample {
             return (Criteria) this;
         }
 
+        public Criteria andCPersonalIntroductionIsNull() {
+            addCriterion("c_personal_introduction is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCPersonalIntroductionIsNotNull() {
+            addCriterion("c_personal_introduction is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCPersonalIntroductionEqualTo(String value) {
+            addCriterion("c_personal_introduction =", value, "cPersonalIntroduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andCPersonalIntroductionNotEqualTo(String value) {
+            addCriterion("c_personal_introduction <>", value, "cPersonalIntroduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andCPersonalIntroductionGreaterThan(String value) {
+            addCriterion("c_personal_introduction >", value, "cPersonalIntroduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andCPersonalIntroductionGreaterThanOrEqualTo(String value) {
+            addCriterion("c_personal_introduction >=", value, "cPersonalIntroduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andCPersonalIntroductionLessThan(String value) {
+            addCriterion("c_personal_introduction <", value, "cPersonalIntroduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andCPersonalIntroductionLessThanOrEqualTo(String value) {
+            addCriterion("c_personal_introduction <=", value, "cPersonalIntroduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andCPersonalIntroductionLike(String value) {
+            addCriterion("c_personal_introduction like", value, "cPersonalIntroduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andCPersonalIntroductionNotLike(String value) {
+            addCriterion("c_personal_introduction not like", value, "cPersonalIntroduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andCPersonalIntroductionIn(List<String> values) {
+            addCriterion("c_personal_introduction in", values, "cPersonalIntroduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andCPersonalIntroductionNotIn(List<String> values) {
+            addCriterion("c_personal_introduction not in", values, "cPersonalIntroduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andCPersonalIntroductionBetween(String value1, String value2) {
+            addCriterion("c_personal_introduction between", value1, value2, "cPersonalIntroduction");
+            return (Criteria) this;
+        }
+
+        public Criteria andCPersonalIntroductionNotBetween(String value1, String value2) {
+            addCriterion("c_personal_introduction not between", value1, value2, "cPersonalIntroduction");
+            return (Criteria) this;
+        }
+
         public Criteria andCAvatarIsNull() {
             addCriterion("c_avatar is null");
             return (Criteria) this;

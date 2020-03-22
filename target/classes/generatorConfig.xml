@@ -41,12 +41,12 @@
 <!--        <table tableName="t_announce" domainObjectName="Announce"></table>-->
 <!--        <table tableName="t_announce_user" domainObjectName="AnnounceUser"></table>-->
 <!--        <table tableName="t_keep" domainObjectName="Keep"></table>-->
-        <table tableName="t_notify" domainObjectName="Notify"></table>
+<!--        <table tableName="t_notify" domainObjectName="Notify"></table>-->
 <!--        <table tableName="t_right" domainObjectName="Right"></table>-->
 <!--        <table tableName="t_role" domainObjectName="Role"></table>-->
 <!--        <table tableName="t_role_right" domainObjectName="Role_right"></table>-->
 <!--        <table tableName="t_theme_reply" domainObjectName="ThemeReply"></table>-->
-<!--        <table tableName="t_user" domainObjectName="User"></table>-->
+        <table tableName="t_user" domainObjectName="User"></table>
 <!--        <table tableName="t_user_relation" domainObjectName="UserRelation"></table>-->
     </context>
 </generatorConfiguration>

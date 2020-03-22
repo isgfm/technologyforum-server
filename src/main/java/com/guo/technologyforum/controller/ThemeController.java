@@ -55,6 +55,11 @@ public class ThemeController {
         return Result.success(themeService.addTheme(theme));
     }
 
+    @GetMapping("/userthemes/{userId}")
+    public Result getThemesByUserId(@PathVariable("userId")long userId){
+        
+    }
+
     @GetMapping("/themelist/tab/{tabRouter}")
     public Result getThemeListByTab(@PathVariable("tabRouter")String tabRouter,
                                     @RequestParam("page")int page,

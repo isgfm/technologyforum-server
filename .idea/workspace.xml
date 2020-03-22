@@ -2,19 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23030701-4ed2-462c-8a10-2ba895970cbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/vo/ThemeClassNodeVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/vo/ThemePageVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/constant/ResultCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/constant/ResultCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ThemeClassController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ThemeClassController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ThemeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ThemeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/customMapper/CustomThemeClassMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/customMapper/CustomThemeClassMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/customMapper/CustomThemeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/customMapper/CustomThemeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/ThemeClassService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/ThemeClassService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/ThemeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/ThemeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomThemeClassMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomThemeClassMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomThemeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dao/mapper/customMapper/CustomThemeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/mapper/customMapper/CustomThemeClassMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/mapper/customMapper/CustomThemeClassMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/UserExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/generateMapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/util/UserUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/util/UserUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dao/mapper/generateMapper/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +126,8 @@
       <workItem from="1583543050408" duration="30151000" />
       <workItem from="1583842464817" duration="1171000" />
       <workItem from="1583843774697" duration="7089000" />
-      <workItem from="1583925228762" duration="45351000" />
+      <workItem from="1583925228762" duration="45990000" />
+      <workItem from="1584536658975" duration="17309000" />
     </task>
     <servers />
   </component>

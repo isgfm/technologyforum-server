@@ -2,6 +2,7 @@ package com.guo.technologyforum.controller;
 
 import com.alibaba.fastjson.support.spring.annotation.FastJsonFilter;
 import com.alibaba.fastjson.support.spring.annotation.FastJsonView;
+import com.guo.technologyforum.annotation.RequireLogin;
 import com.guo.technologyforum.constant.ResultCode;
 import com.guo.technologyforum.dao.entity.User;
 import com.guo.technologyforum.result.Result;
@@ -9,10 +10,7 @@ import com.guo.technologyforum.service.UserService;
 import com.guo.technologyforum.util.JsonUtil;
 import com.guo.technologyforum.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -26,9 +24,16 @@ public class UserController {
     @GetMapping("/test")
     @FastJsonView(exclude = {@FastJsonFilter(clazz = User.class,props = {"cPassword","cSalt"})})
     public User getUU(){
-        User user = new User();
-        user.setcSalt("123");
-        return user;
+        return userService.getUserByUserName("admin").get();
+    }
+
+    @GetMapping("")
+    public Result getUserByUserId(@RequestParam("userId") long userId){
+        Optional<User> optionalUser = userService.getUserByUserId(userId);
+        if(optionalUser.isPresent())
+            return Result.success(optionalUser.get());
+
+        return Result.customize(ResultCode.USER_NOT_EXIST,null);
     }
 
     @GetMapping("/currentUser")
@@ -58,5 +63,14 @@ public class UserController {
         r.customize().put("users",JsonUtil.ListToJsonString(userService.GetUsersByPageAndCount(pageIndex,pageSize)));
         r.customize().put("userCount",userService.getUserCount());
         return r;
+    }
+
+    @PostMapping("/profile/save")
+    @RequireLogin
+    public Result saveProfile(@RequestBody User user){
+        User currentUser = UserUtil.currentUser().get();
+        user.setnId(currentUser.getnId());
+        userService.saveUser(user);
+        return Result.success();
     }
 }

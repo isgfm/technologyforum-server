@@ -61,4 +61,12 @@ public class UserService {
         RowBounds rowBounds = new RowBounds(offset,limit);
         return userMapper.selectByExampleWithRowbounds(new UserExample(),rowBounds);
     }
+
+    public int saveUser(User user){
+        return userMapper.updateByPrimaryKeySelective(user);
+    }
+
+    public Optional<User> getUserByUserId(long userId){
+        return Optional.ofNullable(userMapper.selectByPrimaryKey(userId));
+    }
 }
