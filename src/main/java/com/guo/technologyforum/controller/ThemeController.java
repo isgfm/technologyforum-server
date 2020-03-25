@@ -56,8 +56,12 @@ public class ThemeController {
     }
 
     @GetMapping("/userthemes/{userId}")
-    public Result getThemesByUserId(@PathVariable("userId")long userId){
-
+    public Result getThemesByUserId(@PathVariable("userId")long userId,
+                                    @RequestParam("page")int page,
+                                    @RequestParam("pageSize")int pageSize){
+        List<ThemeVO> themeVOList = themeService.getThemeListByUserId(userId, page, pageSize);
+        themeClassService.setThemeClassName(themeVOList);
+        return Result.success(themeVOList);
     }
 
     @GetMapping("/themelist/tab/{tabRouter}")

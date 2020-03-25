@@ -116,4 +116,13 @@
         where class.c_router = #{nodeRouter}
     </select>
 
+    <select id="getThemeListByUserId" resultMap="themeVOResultMap">
+        <include refid="themeListColum"></include>
+        where t_theme.n_user_id = #{userId}
+        GROUP BY t_theme.n_id
+        order by t_theme.d_create_time desc
+        limit #{pageSize}
+        offset #{offset}
+    </select>
+
 </mapper>

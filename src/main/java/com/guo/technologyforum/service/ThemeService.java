@@ -50,4 +50,8 @@ public class ThemeService {
     public Long countThemeByNodeRouter(String nodeRouter){
         return customThemeMapper.countThemeByNodeRouter(nodeRouter);
     }
+
+    public List<ThemeVO> getThemeListByUserId(long userId, int page, int pageSize){
+        return customThemeMapper.getThemeListByUserId(userId,(page-1)*pageSize,pageSize);
+    }
 }
