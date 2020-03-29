@@ -61,7 +61,8 @@ public class ThemeController {
                                     @RequestParam("pageSize")int pageSize){
         List<ThemeVO> themeVOList = themeService.getThemeListByUserId(userId, page, pageSize);
         themeClassService.setThemeClassName(themeVOList);
-        return Result.success(themeVOList);
+        ThemePageVO themePageVO = new ThemePageVO(themeVOList,themeService.countThemeByUserId(userId));
+        return Result.success(themePageVO);
     }
 
     @GetMapping("/themelist/tab/{tabRouter}")

@@ -27,8 +27,8 @@ public class UserController {
         return userService.getUserByUserName("admin").get();
     }
 
-    @GetMapping("")
-    public Result getUserByUserId(@RequestParam("userId") long userId){
+    @GetMapping("/{userId}")
+    public Result getUserByUserId(@PathVariable("userId") long userId){
         Optional<User> optionalUser = userService.getUserByUserId(userId);
         if(optionalUser.isPresent())
             return Result.success(optionalUser.get());

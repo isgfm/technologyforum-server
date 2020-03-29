@@ -14,5 +14,5 @@ import java.util.List;
 @AllArgsConstructor
 public class ThemePageVO {
     private List<ThemeVO> themeVOList;
-    private Long nodeThemeCount;
+    private Long themeCount;
 }

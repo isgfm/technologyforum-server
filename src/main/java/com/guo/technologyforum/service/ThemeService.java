@@ -1,6 +1,7 @@
 package com.guo.technologyforum.service;
 
 import com.guo.technologyforum.dao.entity.Theme;
+import com.guo.technologyforum.dao.entity.ThemeExample;
 import com.guo.technologyforum.dao.entity.vo.ThemeVO;
 import com.guo.technologyforum.dao.mapper.customMapper.CustomThemeMapper;
 import com.guo.technologyforum.dao.mapper.generateMapper.ThemeMapper;
@@ -49,6 +50,13 @@ public class ThemeService {
 
     public Long countThemeByNodeRouter(String nodeRouter){
         return customThemeMapper.countThemeByNodeRouter(nodeRouter);
+    }
+
+    public Long countThemeByUserId(long userId){
+        ThemeExample themeExample = new ThemeExample();
+        ThemeExample.Criteria criteria = themeExample.createCriteria();
+        criteria.andNUserIdEqualTo(userId);
+        return themeMapper.countByExample(themeExample);
     }
 
     public List<ThemeVO> getThemeListByUserId(long userId, int page, int pageSize){
