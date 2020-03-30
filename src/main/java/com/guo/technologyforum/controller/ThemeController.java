@@ -4,7 +4,7 @@ import com.guo.technologyforum.annotation.CheckThemeExist;
 import com.guo.technologyforum.annotation.RequireLogin;
 import com.guo.technologyforum.constant.ResultCode;
 import com.guo.technologyforum.constant.ThemeConstant;
-import com.guo.technologyforum.dao.entity.Keep;
+import com.guo.technologyforum.dao.entity.KeepTheme;
 import com.guo.technologyforum.dao.entity.Theme;
 import com.guo.technologyforum.dao.entity.vo.ThemePageVO;
 import com.guo.technologyforum.dao.entity.vo.ThemeVO;
@@ -93,21 +93,12 @@ public class ThemeController {
     @CheckThemeExist
     public Result keepTheme(@RequestParam("themeId")long themeId){
         long userId = UserUtil.currentUser().get().getnId();
-        Keep keep = new Keep();
-        keep.setcId(UUID.randomUUID().toString());
-        keep.setnUserId(userId);
-        keep.setdKeepTime(CommonUtil.getNowDate());
-        keep.setnThemeId(themeId);
-        Result result = new Result();
-
-        try {
-            keepService.addKeep(keep);
-            result.setResultCode(ResultCode.SUCCESS);
-        } catch (DuplicateKeyException e) {
-            e.printStackTrace();
-            result.setResultCode(ResultCode.DATA_IS_WRONG);
-        }
-        return result;
+        KeepTheme keepTheme = new KeepTheme();
+        keepTheme.setnUserId(userId);
+        keepTheme.setdKeepTime(CommonUtil.getNowDate());
+        keepTheme.setnThemeId(themeId);
+        keepService.addKeepTheme(keepTheme);
+        return Result.success();
     }
 
 
