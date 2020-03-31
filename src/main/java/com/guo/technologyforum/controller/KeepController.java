@@ -7,6 +7,7 @@ import com.guo.technologyforum.service.KeepService;
 import com.guo.technologyforum.util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,9 +33,9 @@ public class KeepController {
         return Result.success(keepService.addKeepTheme(keep));
     }
 
-    @GetMapping("/")
+    @GetMapping("/userkeep/{userId}")
     @RequireLogin
-    public Result getKeepInfomation(){
+    public Result getUserKeep(@PathVariable("userId")long userId){
 
     }
 }

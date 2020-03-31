@@ -73,4 +73,6 @@ public class UserController {
         userService.saveUser(user);
         return Result.success();
     }
+
+    
 }
