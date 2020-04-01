@@ -2,6 +2,7 @@ package com.guo.technologyforum.service;
 
 import com.guo.technologyforum.constant.NotifyConstant;
 import com.guo.technologyforum.dao.entity.Notify;
+import com.guo.technologyforum.dao.entity.NotifyExample;
 import com.guo.technologyforum.dao.entity.Theme;
 import com.guo.technologyforum.dao.entity.User;
 import com.guo.technologyforum.dao.mapper.generateMapper.NotifyMapper;
@@ -60,5 +61,12 @@ public class NotifyService {
 
     public int addNotify(Notify notify){
         return notifyMapper.insert(notify);
+    }
+
+    public long countNotifyByUserId(long userId){
+        NotifyExample example = new NotifyExample();
+        NotifyExample.Criteria criteria = example.createCriteria();
+        criteria.andNReceiveUserIdEqualTo(userId);
+        return notifyMapper.countByExample(example);
     }
 }

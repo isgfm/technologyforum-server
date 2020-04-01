@@ -5,7 +5,10 @@ import com.alibaba.fastjson.support.spring.annotation.FastJsonView;
 import com.guo.technologyforum.annotation.RequireLogin;
 import com.guo.technologyforum.constant.ResultCode;
 import com.guo.technologyforum.dao.entity.User;
+import com.guo.technologyforum.dao.entity.vo.KeepCountVO;
 import com.guo.technologyforum.result.Result;
+import com.guo.technologyforum.service.KeepService;
+import com.guo.technologyforum.service.NotifyService;
 import com.guo.technologyforum.service.UserService;
 import com.guo.technologyforum.util.JsonUtil;
 import com.guo.technologyforum.util.UserUtil;
@@ -20,6 +23,12 @@ import java.util.Optional;
 public class UserController {
     @Autowired
     UserService userService;
+
+    @Autowired
+    KeepService keepService;
+
+    @Autowired
+    NotifyService notifyService;
 
     @GetMapping("/test")
     @FastJsonView(exclude = {@FastJsonFilter(clazz = User.class,props = {"cPassword","cSalt"})})
@@ -74,5 +83,17 @@ public class UserController {
         return Result.success();
     }
 
-    
+    @GetMapping("/statecount/{userId}")
+    @RequireLogin
+    public Result getUserKeep(@PathVariable("userId")long userId){
+        KeepCountVO keepCountVO = new KeepCountVO();
+        keepCountVO.setKeepNodeCount(keepService.countKeepNodeByUserId(userId));
+        keepCountVO.setKeepThemeCount(keepService.countKeepThemeByUserId(userId));
+        keepCountVO.setAttentionCount(userService.countUserAttention(userId));
+        keepCountVO.setNotifyCount(notifyService.countNotifyByUserId(userId));
+        return Result.success(keepCountVO);
+    }
+
+
+
 }

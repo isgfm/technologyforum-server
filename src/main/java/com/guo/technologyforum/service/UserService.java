@@ -1,8 +1,11 @@
 package com.guo.technologyforum.service;
 
+import com.guo.technologyforum.dao.entity.KeepThemeExample;
 import com.guo.technologyforum.dao.entity.User;
+import com.guo.technologyforum.dao.entity.UserAttentionExample;
 import com.guo.technologyforum.dao.entity.UserExample;
 import com.guo.technologyforum.dao.mapper.customMapper.CustomUserMapper;
+import com.guo.technologyforum.dao.mapper.generateMapper.UserAttentionMapper;
 import com.guo.technologyforum.dao.mapper.generateMapper.UserMapper;
 import com.guo.technologyforum.util.CommonUtil;
 import com.guo.technologyforum.util.EncryptUtil;
@@ -20,6 +23,9 @@ public class UserService {
 
     @Autowired
     CustomUserMapper customUserMapper;
+
+    @Autowired
+    UserAttentionMapper userAttentionMapper;
 
     public List<User> getUserListFromThemeReply(long themeId){
         return customUserMapper.getUserListFromThemeReply(themeId);
@@ -69,4 +75,12 @@ public class UserService {
     public Optional<User> getUserByUserId(long userId){
         return Optional.ofNullable(userMapper.selectByPrimaryKey(userId));
     }
+
+    public long countUserAttention(long userId){
+        UserAttentionExample example = new UserAttentionExample();
+        UserAttentionExample.Criteria criteria = example.createCriteria();
+        criteria.andNUserIdEqualTo(userId);
+        return userAttentionMapper.countByExample(example);
+    }
+
 }

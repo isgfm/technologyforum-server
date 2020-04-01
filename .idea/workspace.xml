@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23030701-4ed2-462c-8a10-2ba895970cbd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/vo/KeepCountVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/KeepController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/KeepController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/NotifyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/NotifyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/KeepService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/KeepService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/generateMapper/UserAttentionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/generateMapper/UserAttentionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/NotifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/NotifyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/UserService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +128,7 @@
       <workItem from="1584536658975" duration="21235000" />
       <workItem from="1585095035992" duration="3272000" />
       <workItem from="1585398046422" duration="16133000" />
-      <workItem from="1585654462664" duration="5718000" />
+      <workItem from="1585654462664" duration="17227000" />
     </task>
     <servers />
   </component>
