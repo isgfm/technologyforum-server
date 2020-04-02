@@ -8,10 +8,7 @@ import com.guo.technologyforum.service.KeepService;
 import com.guo.technologyforum.service.UserService;
 import com.guo.technologyforum.util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -38,9 +35,41 @@ public class KeepController {
         return Result.success(keepService.addKeepTheme(keep));
     }
 
-    @GetMapping("/keeptheme/{themeId}")
+    @GetMapping("/theme/{themeId}")
     @RequireLogin
-    public Result keepTheme(@PathVariable("themeId")long themeId){
-        
+    public Result getKeepTheme(@PathVariable("themeId")long themeId){
+        return Result.success();
     }
+
+    @PutMapping("/theme/{themeId}")
+    @RequireLogin
+    public Result putKeepTheme(@PathVariable("themeId")long themeId){
+        return Result.success();
+    }
+
+    @DeleteMapping("/theme/{themeId}")
+    @RequireLogin
+    public Result deletekeepTheme(@PathVariable("themeId")long themeId){
+        return Result.success();
+    }
+
+    @GetMapping("/node/{nodeId}")
+    @RequireLogin
+    public Result getKeepNode(@PathVariable("nodeId")long nodeId){
+        return Result.success();
+    }
+
+    @PutMapping("/node/{nodeId}")
+    @RequireLogin
+    public Result putKeepNode(@PathVariable("nodeId")long nodeId){
+        return Result.success();
+    }
+
+    @DeleteMapping("/node/{nodeId}")
+    @RequireLogin
+    public Result deletekeepNode(@PathVariable("nodeId")long nodeId){
+        return Result.success();
+    }
+
+
 }

@@ -9,6 +9,7 @@ import com.guo.technologyforum.dao.entity.vo.KeepCountVO;
 import com.guo.technologyforum.result.Result;
 import com.guo.technologyforum.service.KeepService;
 import com.guo.technologyforum.service.NotifyService;
+import com.guo.technologyforum.service.RelationService;
 import com.guo.technologyforum.service.UserService;
 import com.guo.technologyforum.util.JsonUtil;
 import com.guo.technologyforum.util.UserUtil;
@@ -29,6 +30,9 @@ public class UserController {
 
     @Autowired
     NotifyService notifyService;
+
+    @Autowired
+    RelationService relationService;
 
     @GetMapping("/test")
     @FastJsonView(exclude = {@FastJsonFilter(clazz = User.class,props = {"cPassword","cSalt"})})
@@ -89,7 +93,7 @@ public class UserController {
         KeepCountVO keepCountVO = new KeepCountVO();
         keepCountVO.setKeepNodeCount(keepService.countKeepNodeByUserId(userId));
         keepCountVO.setKeepThemeCount(keepService.countKeepThemeByUserId(userId));
-        keepCountVO.setAttentionCount(userService.countUserAttention(userId));
+        keepCountVO.setAttentionCount(relationService.countUserAttention(userId));
         keepCountVO.setNotifyCount(notifyService.countNotifyByUserId(userId));
         return Result.success(keepCountVO);
     }

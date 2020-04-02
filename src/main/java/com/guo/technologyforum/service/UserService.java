@@ -24,8 +24,7 @@ public class UserService {
     @Autowired
     CustomUserMapper customUserMapper;
 
-    @Autowired
-    UserAttentionMapper userAttentionMapper;
+
 
     public List<User> getUserListFromThemeReply(long themeId){
         return customUserMapper.getUserListFromThemeReply(themeId);
@@ -76,11 +75,6 @@ public class UserService {
         return Optional.ofNullable(userMapper.selectByPrimaryKey(userId));
     }
 
-    public long countUserAttention(long userId){
-        UserAttentionExample example = new UserAttentionExample();
-        UserAttentionExample.Criteria criteria = example.createCriteria();
-        criteria.andNUserIdEqualTo(userId);
-        return userAttentionMapper.countByExample(example);
-    }
+
 
 }
