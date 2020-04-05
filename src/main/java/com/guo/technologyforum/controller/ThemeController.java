@@ -88,19 +88,6 @@ public class ThemeController {
         return Result.success(themeService.getTodayHotTheme(limit));
     }
 
-    @GetMapping("/kepp")
-    @RequireLogin
-    @CheckThemeExist
-    public Result keepTheme(@RequestParam("themeId")long themeId){
-        long userId = UserUtil.currentUser().get().getnId();
-        KeepTheme keepTheme = new KeepTheme();
-        keepTheme.setnUserId(userId);
-        keepTheme.setdKeepTime(CommonUtil.getNowDate());
-        keepTheme.setnThemeId(themeId);
-        keepService.addKeepTheme(keepTheme);
-        return Result.success();
-    }
-
 
     @GetMapping("/{themeId}")
     public Result getThemeByThemeIdId(@PathVariable("themeId")long themeId){
@@ -108,6 +95,7 @@ public class ThemeController {
         if(optionalThemeVO.isPresent()){
             ThemeVO themeVO = optionalThemeVO.get();
             themeVO.setThemeClassName(themeClassService.getThemeClassByThemeClassId(themeVO.getTheme().getnThemeClass()).getcName());
+            themeVO.setKeepCount(keepService.countThemeKeep(themeId));
             return Result.success(themeVO);
         }
         else

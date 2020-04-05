@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23030701-4ed2-462c-8a10-2ba895970cbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/RelationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/RelationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/annotation/CheckThemeExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/annotation/CheckThemeExist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/KeepController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/KeepController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/RelationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/RelationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ThemeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/controller/ThemeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/UserAttentionExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/UserAttentionExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/UserAttentionKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/UserAttentionKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/UserBlockExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/UserBlockExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/UserBlockKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/UserBlockKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/vo/ThemeVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/entity/vo/ThemeVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/generateMapper/UserBlockMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/dao/mapper/generateMapper/UserBlockMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/KeepService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/KeepService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/RelationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/guo/technologyforum/service/RelationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dao/mapper/generateMapper/UserAttentionMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dao/mapper/generateMapper/UserBlockMapper.xml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +56,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../idea/test" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -127,7 +135,7 @@
       <workItem from="1584536658975" duration="21235000" />
       <workItem from="1585095035992" duration="3272000" />
       <workItem from="1585398046422" duration="16133000" />
-      <workItem from="1585654462664" duration="23451000" />
+      <workItem from="1585654462664" duration="44400000" />
     </task>
     <servers />
   </component>

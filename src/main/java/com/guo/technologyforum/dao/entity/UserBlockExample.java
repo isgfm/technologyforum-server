@@ -265,62 +265,52 @@ public class UserBlockExample {
             return (Criteria) this;
         }
 
-        public Criteria andNBlockUserIdEqualTo(String value) {
+        public Criteria andNBlockUserIdEqualTo(Long value) {
             addCriterion("n_block_user_id =", value, "nBlockUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNBlockUserIdNotEqualTo(String value) {
+        public Criteria andNBlockUserIdNotEqualTo(Long value) {
             addCriterion("n_block_user_id <>", value, "nBlockUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNBlockUserIdGreaterThan(String value) {
+        public Criteria andNBlockUserIdGreaterThan(Long value) {
             addCriterion("n_block_user_id >", value, "nBlockUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNBlockUserIdGreaterThanOrEqualTo(String value) {
+        public Criteria andNBlockUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("n_block_user_id >=", value, "nBlockUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNBlockUserIdLessThan(String value) {
+        public Criteria andNBlockUserIdLessThan(Long value) {
             addCriterion("n_block_user_id <", value, "nBlockUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNBlockUserIdLessThanOrEqualTo(String value) {
+        public Criteria andNBlockUserIdLessThanOrEqualTo(Long value) {
             addCriterion("n_block_user_id <=", value, "nBlockUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNBlockUserIdLike(String value) {
-            addCriterion("n_block_user_id like", value, "nBlockUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNBlockUserIdNotLike(String value) {
-            addCriterion("n_block_user_id not like", value, "nBlockUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNBlockUserIdIn(List<String> values) {
+        public Criteria andNBlockUserIdIn(List<Long> values) {
             addCriterion("n_block_user_id in", values, "nBlockUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNBlockUserIdNotIn(List<String> values) {
+        public Criteria andNBlockUserIdNotIn(List<Long> values) {
             addCriterion("n_block_user_id not in", values, "nBlockUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNBlockUserIdBetween(String value1, String value2) {
+        public Criteria andNBlockUserIdBetween(Long value1, Long value2) {
             addCriterion("n_block_user_id between", value1, value2, "nBlockUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNBlockUserIdNotBetween(String value1, String value2) {
+        public Criteria andNBlockUserIdNotBetween(Long value1, Long value2) {
             addCriterion("n_block_user_id not between", value1, value2, "nBlockUserId");
             return (Criteria) this;
         }

@@ -1,12 +1,15 @@
 package com.guo.technologyforum.controller;
 
+import com.guo.technologyforum.annotation.CheckThemeExist;
 import com.guo.technologyforum.annotation.RequireLogin;
+import com.guo.technologyforum.dao.entity.KeepNode;
 import com.guo.technologyforum.dao.entity.KeepTheme;
 import com.guo.technologyforum.dao.entity.vo.KeepCountVO;
 import com.guo.technologyforum.result.Result;
 import com.guo.technologyforum.service.KeepService;
 import com.guo.technologyforum.service.UserService;
 import com.guo.technologyforum.util.CommonUtil;
+import com.guo.technologyforum.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,47 +31,47 @@ public class KeepController {
 
     @GetMapping("/test")
     public Result test(){
-        KeepTheme keep = new KeepTheme();
-        keep.setdKeepTime(CommonUtil.getNowDate());
-        keep.setnThemeId((long) 1);
-        keep.setnUserId((long) 1);
-        return Result.success(keepService.addKeepTheme(keep));
+        return Result.success(keepService.addKeepTheme(1,1));
     }
 
     @GetMapping("/theme/{themeId}")
     @RequireLogin
     public Result getKeepTheme(@PathVariable("themeId")long themeId){
-        return Result.success();
+        KeepTheme keepTheme = keepService.getKeepTheme(UserUtil.currentUser().get().getnId(),themeId);
+        return Result.success(keepTheme!=null?true:false);
     }
 
     @PutMapping("/theme/{themeId}")
     @RequireLogin
+    @CheckThemeExist
     public Result putKeepTheme(@PathVariable("themeId")long themeId){
-        return Result.success();
+        return Result.success(keepService.addKeepTheme(UserUtil.currentUser().get().getnId(),themeId));
     }
 
     @DeleteMapping("/theme/{themeId}")
     @RequireLogin
+    @CheckThemeExist
     public Result deletekeepTheme(@PathVariable("themeId")long themeId){
-        return Result.success();
+        return Result.success(keepService.deleteKeepTheme(UserUtil.currentUser().get().getnId(),themeId));
     }
 
     @GetMapping("/node/{nodeId}")
     @RequireLogin
     public Result getKeepNode(@PathVariable("nodeId")long nodeId){
-        return Result.success();
+        KeepNode keepNode = keepService.getKeepNode(UserUtil.currentUser().get().getnId(),nodeId);
+        return Result.success(keepNode!=null?true:false);
     }
 
     @PutMapping("/node/{nodeId}")
     @RequireLogin
     public Result putKeepNode(@PathVariable("nodeId")long nodeId){
-        return Result.success();
+        return Result.success(keepService.addKeepNode(UserUtil.currentUser().get().getnId(),nodeId));
     }
 
     @DeleteMapping("/node/{nodeId}")
     @RequireLogin
     public Result deletekeepNode(@PathVariable("nodeId")long nodeId){
-        return Result.success();
+        return Result.success(keepService.deleteKeepNode(UserUtil.currentUser().get().getnId(),nodeId));
     }
 
 

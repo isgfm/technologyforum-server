@@ -265,62 +265,52 @@ public class UserAttentionExample {
             return (Criteria) this;
         }
 
-        public Criteria andNAttentionUserIdEqualTo(String value) {
+        public Criteria andNAttentionUserIdEqualTo(Long value) {
             addCriterion("n_attention_user_id =", value, "nAttentionUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNAttentionUserIdNotEqualTo(String value) {
+        public Criteria andNAttentionUserIdNotEqualTo(Long value) {
             addCriterion("n_attention_user_id <>", value, "nAttentionUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNAttentionUserIdGreaterThan(String value) {
+        public Criteria andNAttentionUserIdGreaterThan(Long value) {
             addCriterion("n_attention_user_id >", value, "nAttentionUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNAttentionUserIdGreaterThanOrEqualTo(String value) {
+        public Criteria andNAttentionUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("n_attention_user_id >=", value, "nAttentionUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNAttentionUserIdLessThan(String value) {
+        public Criteria andNAttentionUserIdLessThan(Long value) {
             addCriterion("n_attention_user_id <", value, "nAttentionUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNAttentionUserIdLessThanOrEqualTo(String value) {
+        public Criteria andNAttentionUserIdLessThanOrEqualTo(Long value) {
             addCriterion("n_attention_user_id <=", value, "nAttentionUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNAttentionUserIdLike(String value) {
-            addCriterion("n_attention_user_id like", value, "nAttentionUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNAttentionUserIdNotLike(String value) {
-            addCriterion("n_attention_user_id not like", value, "nAttentionUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNAttentionUserIdIn(List<String> values) {
+        public Criteria andNAttentionUserIdIn(List<Long> values) {
             addCriterion("n_attention_user_id in", values, "nAttentionUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNAttentionUserIdNotIn(List<String> values) {
+        public Criteria andNAttentionUserIdNotIn(List<Long> values) {
             addCriterion("n_attention_user_id not in", values, "nAttentionUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNAttentionUserIdBetween(String value1, String value2) {
+        public Criteria andNAttentionUserIdBetween(Long value1, Long value2) {
             addCriterion("n_attention_user_id between", value1, value2, "nAttentionUserId");
             return (Criteria) this;
         }
 
-        public Criteria andNAttentionUserIdNotBetween(String value1, String value2) {
+        public Criteria andNAttentionUserIdNotBetween(Long value1, Long value2) {
             addCriterion("n_attention_user_id not between", value1, value2, "nAttentionUserId");
             return (Criteria) this;
         }

@@ -4,6 +4,7 @@ import com.guo.technologyforum.dao.entity.*;
 import com.guo.technologyforum.dao.mapper.generateMapper.KeepNodeMapper;
 import com.guo.technologyforum.dao.mapper.generateMapper.KeepThemeMapper;
 import com.guo.technologyforum.dao.mapper.generateMapper.UserAttentionMapper;
+import com.guo.technologyforum.util.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
@@ -22,27 +23,22 @@ public class KeepService {
     @Autowired
     UserAttentionMapper userAttentionMapper;
 
-    public int addKeepTheme(KeepTheme keepTheme) throws DuplicateKeyException {
-
+    public int addKeepTheme(long userId,long themeId) throws DuplicateKeyException {
+        KeepTheme keepTheme = new KeepTheme();
+        keepTheme.setnUserId(userId);
+        keepTheme.setnThemeId(themeId);
+        keepTheme.setdKeepTime(CommonUtil.getNowDate());
         return keepThemeMapper.insert(keepTheme);
     }
 
     public int deleteKeepTheme(long userId,long themeId){
-        KeepThemeKey keepThemeKey = new KeepThemeKey();
-        keepThemeKey.setnUserId(userId);
-        keepThemeKey.setnThemeId(themeId);
+        KeepThemeKey keepThemeKey = initKeepThemeKey(userId, themeId);
         return keepThemeMapper.deleteByPrimaryKey(keepThemeKey);
     }
 
-    public int addKeepNode(KeepNode keepNode) throws DuplicateKeyException {
-        return keepNodeMapper.insert(keepNode);
-    }
-
-    public int deleteKeepNode(long userId,long nodeId){
-        KeepNodeKey keepNodeKey = new KeepNodeKey();
-        keepNodeKey.setnUserId(userId);
-        keepNodeKey.setnNodeId(nodeId);
-        return keepNodeMapper.deleteByPrimaryKey(keepNodeKey);
+    public KeepTheme getKeepTheme(long userId,long themeId){
+        KeepThemeKey keepThemeKey = initKeepThemeKey(userId, themeId);
+        return keepThemeMapper.selectByPrimaryKey(keepThemeKey);
     }
 
     public long countKeepThemeByUserId(long userId){
@@ -52,11 +48,57 @@ public class KeepService {
         return keepThemeMapper.countByExample(example);
     }
 
+    public long countThemeKeep(long themeId){
+        KeepThemeExample example = new KeepThemeExample();
+        KeepThemeExample.Criteria criteria = example.createCriteria();
+        criteria.andNThemeIdEqualTo(themeId);
+        return keepThemeMapper.countByExample(example);
+    }
+
+    private KeepThemeKey initKeepThemeKey(long userId,long themeId){
+        KeepThemeKey keepThemeKey = new KeepThemeKey();
+        keepThemeKey.setnUserId(userId);
+        keepThemeKey.setnThemeId(themeId);
+        return keepThemeKey;
+    }
+
+    public int addKeepNode(long userId,long nodeId) throws DuplicateKeyException {
+        KeepNode keepNode = new KeepNode();
+        keepNode.setnUserId(userId);
+        keepNode.setnNodeId(nodeId);
+        keepNode.setdKeepTime(CommonUtil.getNowDate());
+        return keepNodeMapper.insert(keepNode);
+    }
+
+    public int deleteKeepNode(long userId,long nodeId){
+        KeepNodeKey keepNodeKey = initKeepNodeKey(userId,nodeId);
+        return keepNodeMapper.deleteByPrimaryKey(keepNodeKey);
+    }
+
     public long countKeepNodeByUserId(long userId){
         KeepNodeExample example = new KeepNodeExample();
         KeepNodeExample.Criteria criteria = example.createCriteria();
         criteria.andNUserIdEqualTo(userId);
         return keepNodeMapper.countByExample(example);
+    }
+
+    public KeepNode getKeepNode(long userId,long nodeId){
+        KeepNodeKey keepNodeKey = initKeepNodeKey(userId,nodeId);
+        return keepNodeMapper.selectByPrimaryKey(keepNodeKey);
+    }
+
+    public long countNodeKeep(long nodeId){
+        KeepNodeExample example = new KeepNodeExample();
+        KeepNodeExample.Criteria criteria = example.createCriteria();
+        criteria.andNNodeIdEqualTo(nodeId);
+        return keepNodeMapper.countByExample(example);
+    }
+
+    private KeepNodeKey initKeepNodeKey(long userId,long nodeId){
+        KeepNodeKey keepNodeKey = new KeepNodeKey();
+        keepNodeKey.setnUserId(userId);
+        keepNodeKey.setnNodeId(nodeId);
+        return keepNodeKey;
     }
 
 }
