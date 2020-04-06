@@ -11,5 +11,5 @@ import lombok.Data;
 @Data
 public class ThemeClassNodeVO {
     private ThemeClass themeClass;
-    private Integer themeCount;
+    private Long themeCount;
 }

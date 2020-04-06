@@ -45,6 +45,10 @@ public class ThemeClassService {
         return customThemeClassMapper.getNodesByTabRouter(tabRouter);
     }
 
+    public List<ThemeClassNodeVO> getNodesByUserKeep(long userId){
+        return customThemeClassMapper.getNodesByUserKeep(userId);
+    }
+
     public ThemeClass getThemeClassByThemeClassId(Integer id){
         return  themeClassMapper.selectByPrimaryKey(id);
     }

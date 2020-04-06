@@ -14,4 +14,6 @@ public interface CustomThemeClassMapper {
     List<ThemeClass> getNodesByTabRouter(String tabRouter);
 
     ThemeClassNodeVO getNodeVOByNodeRouter(String nodeRouter);
+
+    List<ThemeClassNodeVO> getNodesByUserKeep(long userId);
 }

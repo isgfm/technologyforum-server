@@ -27,6 +27,12 @@
     </select>
 
     <select id="getNodeVOByNodeRouter" resultMap="themeClassNodeVO">
+        <include refid="themeClassNodeVOSql"></include>
+        where class.c_router=#{nodeRouter}
+    </select>
+
+
+    <sql id="themeClassNodeVOSql">
         select
         <include refid="com.guo.technologyforum.dao.mapper.customMapper.CustomSql.prefixThemeClass">
             <property name="tabAlias" value="class"/>
@@ -34,7 +40,10 @@
         </include>,
         count(theme.n_id) themeCount
         from t_theme_class class left join t_theme theme on class.n_id = theme.n_theme_class
-        where class.c_router=#{nodeRouter}
-    </select>
+    </sql>
 
+    <select id="getNodesByUserKeep" resultMap="themeClassNodeVO">
+        <include refid="themeClassNodeVOSql"></include>
+        where class.n_id in (select n_node_id from t_keep_node where n_user_id=#{userId})
+    </select>
 </mapper>

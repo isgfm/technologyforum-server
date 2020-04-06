@@ -125,4 +125,22 @@
         offset #{offset}
     </select>
 
+    <select id="getThemeListByUserAttention" resultMap="themeVOResultMap">
+        <include refid="themeListColum"></include>
+        where t_theme.n_user_id in (select n_attention_user from t_user_attention where n_user_id = #{userId})
+        GROUP BY t_theme.n_id
+        order by t_theme.d_create_time desc
+        limit #{pageSize}
+        offset #{offset}
+    </select>
+
+    <select id="getThemeListByUserKeep" resultMap="themeVOResultMap">
+        <include refid="themeListColum"></include>
+        where t_theme.n_id in (select n_theme_id from t_keep_theme where n_user_id = #{userId})
+        GROUP BY t_theme.n_id
+        order by t_theme.d_create_time desc
+        limit #{pageSize}
+        offset #{offset}
+    </select>
+
 </mapper>

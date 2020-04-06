@@ -65,6 +65,30 @@ public class ThemeController {
         return Result.success(themePageVO);
     }
 
+    @GetMapping("/user/attention")
+    @RequireLogin
+    public Result getThemeListByUserAttention(
+                                    @RequestParam("page")int page,
+                                    @RequestParam("pageSize")int pageSize){
+        long userId = UserUtil.currentUser().get().getnId();
+        List<ThemeVO> themeVOList = themeService.getThemeListByUserAttention(userId, page, pageSize);
+        themeClassService.setThemeClassName(themeVOList);
+        ThemePageVO themePageVO = new ThemePageVO(themeVOList,themeService.countThemeByUserId(userId));
+        return Result.success(themePageVO);
+    }
+
+    @GetMapping("/user/keep")
+    @RequireLogin
+    public Result getThemeListByUserKeep(
+                                              @RequestParam("page")int page,
+                                              @RequestParam("pageSize")int pageSize){
+        long userId = UserUtil.currentUser().get().getnId();
+        List<ThemeVO> themeVOList = themeService.getThemeListByUserKeep(userId, page, pageSize);
+        themeClassService.setThemeClassName(themeVOList);
+        ThemePageVO themePageVO = new ThemePageVO(themeVOList,themeService.countThemeByUserId(userId));
+        return Result.success(themePageVO);
+    }
+
     @GetMapping("/themelist/tab/{tabRouter}")
     public Result getThemeListByTab(@PathVariable("tabRouter")String tabRouter,
                                     @RequestParam("page")int page,

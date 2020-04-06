@@ -62,4 +62,14 @@ public class ThemeService {
     public List<ThemeVO> getThemeListByUserId(long userId, int page, int pageSize){
         return customThemeMapper.getThemeListByUserId(userId,(page-1)*pageSize,pageSize);
     }
+
+    public List<ThemeVO> getThemeListByUserAttention(long userId, int page, int pageSize){
+        return customThemeMapper.getThemeListByUserAttention(userId,(page-1)*pageSize,pageSize);
+    }
+
+    public List<ThemeVO> getThemeListByUserKeep(long userId, int page, int pageSize){
+        return customThemeMapper.getThemeListByUserKeep(userId,(page-1)*pageSize,pageSize);
+    }
+
+
 }

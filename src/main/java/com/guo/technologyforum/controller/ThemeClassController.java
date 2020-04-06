@@ -1,5 +1,6 @@
 package com.guo.technologyforum.controller;
 
+import com.guo.technologyforum.annotation.RequireLogin;
 import com.guo.technologyforum.constant.ResultCode;
 import com.guo.technologyforum.constant.ThemeConstant;
 import com.guo.technologyforum.dao.entity.ThemeClass;
@@ -7,6 +8,7 @@ import com.guo.technologyforum.dao.entity.vo.ThemeClassNodeVO;
 import com.guo.technologyforum.dao.entity.vo.ThemeClassVO;
 import com.guo.technologyforum.result.Result;
 import com.guo.technologyforum.service.ThemeClassService;
+import com.guo.technologyforum.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,9 +40,10 @@ public class ThemeClassController {
         return Result.success(themeClassService.getHomeTabs());
     }
 
-    @GetMapping("/nodelist")
-    public Result getNodeList(@RequestParam("tabRouter") String tabRouter){
-        return Result.success(themeClassService.getNodesByTabRouter(tabRouter));
+    @GetMapping("/keep")
+    @RequireLogin
+    public Result getNodesByUserKeep(){
+        return Result.success(themeClassService.getNodesByUserKeep(UserUtil.currentUser().get().getnId()));
     }
 
     @GetMapping("/node")
@@ -52,9 +55,11 @@ public class ThemeClassController {
         return Result.customize(ResultCode.THEMECLASS_DATA_NONE,null);
     }
 
-
-
-
+    @GetMapping("/user/keep")
+    @RequireLogin
+    public Result getNodeList(@RequestParam("tabRouter") String tabRouter){
+        return Result.success(themeClassService.getNodesByTabRouter(tabRouter));
+    }
 
     @GetMapping("/homeclass")
     public Result getTabss(){
