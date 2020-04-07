@@ -73,7 +73,7 @@ public class ThemeController {
         long userId = UserUtil.currentUser().get().getnId();
         List<ThemeVO> themeVOList = themeService.getThemeListByUserAttention(userId, page, pageSize);
         themeClassService.setThemeClassName(themeVOList);
-        ThemePageVO themePageVO = new ThemePageVO(themeVOList,themeService.countThemeByUserId(userId));
+        ThemePageVO themePageVO = new ThemePageVO(themeVOList,themeService.countThemeByUserAttention(userId));
         return Result.success(themePageVO);
     }
 
@@ -85,7 +85,7 @@ public class ThemeController {
         long userId = UserUtil.currentUser().get().getnId();
         List<ThemeVO> themeVOList = themeService.getThemeListByUserKeep(userId, page, pageSize);
         themeClassService.setThemeClassName(themeVOList);
-        ThemePageVO themePageVO = new ThemePageVO(themeVOList,themeService.countThemeByUserId(userId));
+        ThemePageVO themePageVO = new ThemePageVO(themeVOList,keepService.countKeepThemeByUserId(userId));
         return Result.success(themePageVO);
     }
 

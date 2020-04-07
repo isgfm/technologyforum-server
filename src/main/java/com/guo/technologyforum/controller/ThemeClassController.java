@@ -55,8 +55,7 @@ public class ThemeClassController {
         return Result.customize(ResultCode.THEMECLASS_DATA_NONE,null);
     }
 
-    @GetMapping("/user/keep")
-    @RequireLogin
+    @GetMapping("/nodelist")
     public Result getNodeList(@RequestParam("tabRouter") String tabRouter){
         return Result.success(themeClassService.getNodesByTabRouter(tabRouter));
     }

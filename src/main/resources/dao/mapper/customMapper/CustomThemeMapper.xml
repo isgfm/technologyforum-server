@@ -127,7 +127,7 @@
 
     <select id="getThemeListByUserAttention" resultMap="themeVOResultMap">
         <include refid="themeListColum"></include>
-        where t_theme.n_user_id in (select n_attention_user from t_user_attention where n_user_id = #{userId})
+        where t_theme.n_user_id in (select n_attention_user_id from t_user_attention where n_user_id = #{userId})
         GROUP BY t_theme.n_id
         order by t_theme.d_create_time desc
         limit #{pageSize}
@@ -141,6 +141,11 @@
         order by t_theme.d_create_time desc
         limit #{pageSize}
         offset #{offset}
+    </select>
+
+    <select id="countThemeByUserAttention" resultType="long">
+        select count(1) from t_theme
+        where t_theme.n_user_id in (select n_attention_user_id from t_user_attention where n_user_id = #{userId})
     </select>
 
 </mapper>

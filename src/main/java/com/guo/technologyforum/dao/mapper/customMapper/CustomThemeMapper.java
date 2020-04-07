@@ -23,4 +23,6 @@ public interface CustomThemeMapper {
     List<ThemeVO> getThemeListByUserAttention(long userId, int offset, int pageSize);
 
     List<ThemeVO> getThemeListByUserKeep(long userId, int offset, int pageSize);
+
+    long countThemeByUserAttention(long userId);
 }

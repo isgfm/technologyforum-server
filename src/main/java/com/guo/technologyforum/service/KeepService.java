@@ -41,6 +41,11 @@ public class KeepService {
         return keepThemeMapper.selectByPrimaryKey(keepThemeKey);
     }
 
+    /**
+     * TODO 计算user收藏了多少个主题
+     * @param userId
+     * @return long
+     */
     public long countKeepThemeByUserId(long userId){
         KeepThemeExample example = new KeepThemeExample();
         KeepThemeExample.Criteria criteria = example.createCriteria();
@@ -48,6 +53,11 @@ public class KeepService {
         return keepThemeMapper.countByExample(example);
     }
 
+    /**
+     * TODO 计算有多少人收藏了该主题
+     * @param themeId 被收藏的主题id
+     * @return long
+     */
     public long countThemeKeep(long themeId){
         KeepThemeExample example = new KeepThemeExample();
         KeepThemeExample.Criteria criteria = example.createCriteria();
@@ -75,6 +85,11 @@ public class KeepService {
         return keepNodeMapper.deleteByPrimaryKey(keepNodeKey);
     }
 
+    /**
+     * TODO 计算user收藏了多少个节点
+     * @param userId
+     * @return long
+     */
     public long countKeepNodeByUserId(long userId){
         KeepNodeExample example = new KeepNodeExample();
         KeepNodeExample.Criteria criteria = example.createCriteria();
@@ -87,6 +102,12 @@ public class KeepService {
         return keepNodeMapper.selectByPrimaryKey(keepNodeKey);
     }
 
+
+    /**
+     * TODO 计算多少人收藏了该节点
+     * @param nodeId
+     * @return long
+     */
     public long countNodeKeep(long nodeId){
         KeepNodeExample example = new KeepNodeExample();
         KeepNodeExample.Criteria criteria = example.createCriteria();

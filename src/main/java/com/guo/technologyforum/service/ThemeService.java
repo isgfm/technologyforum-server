@@ -71,5 +71,8 @@ public class ThemeService {
         return customThemeMapper.getThemeListByUserKeep(userId,(page-1)*pageSize,pageSize);
     }
 
+    public long countThemeByUserAttention(long userId){
+        return customThemeMapper.countThemeByUserAttention(userId);
+    }
 
 }
