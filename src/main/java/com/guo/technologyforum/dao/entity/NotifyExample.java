@@ -684,6 +684,66 @@ public class NotifyExample {
             addCriterion("c_message not between", value1, value2, "cMessage");
             return (Criteria) this;
         }
+
+        public Criteria andNThemeIdIsNull() {
+            addCriterion("n_theme_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNThemeIdIsNotNull() {
+            addCriterion("n_theme_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNThemeIdEqualTo(Long value) {
+            addCriterion("n_theme_id =", value, "nThemeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNThemeIdNotEqualTo(Long value) {
+            addCriterion("n_theme_id <>", value, "nThemeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNThemeIdGreaterThan(Long value) {
+            addCriterion("n_theme_id >", value, "nThemeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNThemeIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("n_theme_id >=", value, "nThemeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNThemeIdLessThan(Long value) {
+            addCriterion("n_theme_id <", value, "nThemeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNThemeIdLessThanOrEqualTo(Long value) {
+            addCriterion("n_theme_id <=", value, "nThemeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNThemeIdIn(List<Long> values) {
+            addCriterion("n_theme_id in", values, "nThemeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNThemeIdNotIn(List<Long> values) {
+            addCriterion("n_theme_id not in", values, "nThemeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNThemeIdBetween(Long value1, Long value2) {
+            addCriterion("n_theme_id between", value1, value2, "nThemeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andNThemeIdNotBetween(Long value1, Long value2) {
+            addCriterion("n_theme_id not between", value1, value2, "nThemeId");
+            return (Criteria) this;
+        }
     }
 
     /**

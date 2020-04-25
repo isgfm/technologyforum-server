@@ -23,6 +23,7 @@
     <result column="n_coin" jdbcType="INTEGER" property="nCoin" />
     <result column="d_create_time" jdbcType="TIMESTAMP" property="dCreateTime" />
     <result column="d_update_time" jdbcType="TIMESTAMP" property="dUpdateTime" />
+    <result column="n_status" jdbcType="SMALLINT" property="nStatus" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -97,7 +98,7 @@
     -->
     n_id, c_username, c_password, c_salt, c_email, n_sex, c_telephone, c_personal_website, 
     c_company, c_position, c_location, c_signature, c_personal_introduction, c_avatar, 
-    n_coin, d_create_time, d_update_time
+    n_coin, d_create_time, d_update_time, n_status
   </sql>
   <select id="selectByExample" parameterType="com.guo.technologyforum.dao.entity.UserExample" resultMap="BaseResultMap">
     <!--
@@ -155,13 +156,15 @@
       c_telephone, c_personal_website, c_company, 
       c_position, c_location, c_signature, 
       c_personal_introduction, c_avatar, n_coin, 
-      d_create_time, d_update_time)
+      d_create_time, d_update_time, n_status
+      )
     values (#{nId,jdbcType=BIGINT}, #{cUsername,jdbcType=VARCHAR}, #{cPassword,jdbcType=VARCHAR}, 
       #{cSalt,jdbcType=VARCHAR}, #{cEmail,jdbcType=VARCHAR}, #{nSex,jdbcType=INTEGER}, 
       #{cTelephone,jdbcType=VARCHAR}, #{cPersonalWebsite,jdbcType=VARCHAR}, #{cCompany,jdbcType=VARCHAR}, 
       #{cPosition,jdbcType=VARCHAR}, #{cLocation,jdbcType=VARCHAR}, #{cSignature,jdbcType=VARCHAR}, 
       #{cPersonalIntroduction,jdbcType=VARCHAR}, #{cAvatar,jdbcType=VARCHAR}, #{nCoin,jdbcType=INTEGER}, 
-      #{dCreateTime,jdbcType=TIMESTAMP}, #{dUpdateTime,jdbcType=TIMESTAMP})
+      #{dCreateTime,jdbcType=TIMESTAMP}, #{dUpdateTime,jdbcType=TIMESTAMP}, #{nStatus,jdbcType=SMALLINT}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.guo.technologyforum.dao.entity.User">
     <!--
@@ -221,6 +224,9 @@
       <if test="dUpdateTime != null">
         d_update_time,
       </if>
+      <if test="nStatus != null">
+        n_status,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="nId != null">
@@ -273,6 +279,9 @@
       </if>
       <if test="dUpdateTime != null">
         #{dUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nStatus != null">
+        #{nStatus,jdbcType=SMALLINT},
       </if>
     </trim>
   </insert>
@@ -344,6 +353,9 @@
       <if test="record.dUpdateTime != null">
         d_update_time = #{record.dUpdateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.nStatus != null">
+        n_status = #{record.nStatus,jdbcType=SMALLINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -371,7 +383,8 @@
       c_avatar = #{record.cAvatar,jdbcType=VARCHAR},
       n_coin = #{record.nCoin,jdbcType=INTEGER},
       d_create_time = #{record.dCreateTime,jdbcType=TIMESTAMP},
-      d_update_time = #{record.dUpdateTime,jdbcType=TIMESTAMP}
+      d_update_time = #{record.dUpdateTime,jdbcType=TIMESTAMP},
+      n_status = #{record.nStatus,jdbcType=SMALLINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -431,6 +444,9 @@
       <if test="dUpdateTime != null">
         d_update_time = #{dUpdateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="nStatus != null">
+        n_status = #{nStatus,jdbcType=SMALLINT},
+      </if>
     </set>
     where n_id = #{nId,jdbcType=BIGINT}
   </update>
@@ -455,7 +471,8 @@
       c_avatar = #{cAvatar,jdbcType=VARCHAR},
       n_coin = #{nCoin,jdbcType=INTEGER},
       d_create_time = #{dCreateTime,jdbcType=TIMESTAMP},
-      d_update_time = #{dUpdateTime,jdbcType=TIMESTAMP}
+      d_update_time = #{dUpdateTime,jdbcType=TIMESTAMP},
+      n_status = #{nStatus,jdbcType=SMALLINT}
     where n_id = #{nId,jdbcType=BIGINT}
   </update>
   <select id="selectByExampleWithRowbounds" parameterType="com.guo.technologyforum.dao.entity.UserExample" resultMap="BaseResultMap">

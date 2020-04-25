@@ -1334,6 +1334,66 @@ public class UserExample {
             addCriterion("d_update_time not between", value1, value2, "dUpdateTime");
             return (Criteria) this;
         }
+
+        public Criteria andNStatusIsNull() {
+            addCriterion("n_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNStatusIsNotNull() {
+            addCriterion("n_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNStatusEqualTo(Short value) {
+            addCriterion("n_status =", value, "nStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andNStatusNotEqualTo(Short value) {
+            addCriterion("n_status <>", value, "nStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andNStatusGreaterThan(Short value) {
+            addCriterion("n_status >", value, "nStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andNStatusGreaterThanOrEqualTo(Short value) {
+            addCriterion("n_status >=", value, "nStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andNStatusLessThan(Short value) {
+            addCriterion("n_status <", value, "nStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andNStatusLessThanOrEqualTo(Short value) {
+            addCriterion("n_status <=", value, "nStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andNStatusIn(List<Short> values) {
+            addCriterion("n_status in", values, "nStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andNStatusNotIn(List<Short> values) {
+            addCriterion("n_status not in", values, "nStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andNStatusBetween(Short value1, Short value2) {
+            addCriterion("n_status between", value1, value2, "nStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andNStatusNotBetween(Short value1, Short value2) {
+            addCriterion("n_status not between", value1, value2, "nStatus");
+            return (Criteria) this;
+        }
     }
 
     /**
