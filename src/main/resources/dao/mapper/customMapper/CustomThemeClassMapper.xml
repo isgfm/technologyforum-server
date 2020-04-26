@@ -45,5 +45,6 @@
     <select id="getNodesByUserKeep" resultMap="themeClassNodeVO">
         <include refid="themeClassNodeVOSql"></include>
         where class.n_id in (select n_node_id from t_keep_node where n_user_id=#{userId})
+        GROUP BY class.n_id
     </select>
 </mapper>

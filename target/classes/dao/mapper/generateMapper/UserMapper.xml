@@ -23,7 +23,7 @@
     <result column="n_coin" jdbcType="INTEGER" property="nCoin" />
     <result column="d_create_time" jdbcType="TIMESTAMP" property="dCreateTime" />
     <result column="d_update_time" jdbcType="TIMESTAMP" property="dUpdateTime" />
-    <result column="n_status" jdbcType="SMALLINT" property="nStatus" />
+    <result column="n_status" jdbcType="INTEGER" property="nStatus" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -163,7 +163,7 @@
       #{cTelephone,jdbcType=VARCHAR}, #{cPersonalWebsite,jdbcType=VARCHAR}, #{cCompany,jdbcType=VARCHAR}, 
       #{cPosition,jdbcType=VARCHAR}, #{cLocation,jdbcType=VARCHAR}, #{cSignature,jdbcType=VARCHAR}, 
       #{cPersonalIntroduction,jdbcType=VARCHAR}, #{cAvatar,jdbcType=VARCHAR}, #{nCoin,jdbcType=INTEGER}, 
-      #{dCreateTime,jdbcType=TIMESTAMP}, #{dUpdateTime,jdbcType=TIMESTAMP}, #{nStatus,jdbcType=SMALLINT}
+      #{dCreateTime,jdbcType=TIMESTAMP}, #{dUpdateTime,jdbcType=TIMESTAMP}, #{nStatus,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.guo.technologyforum.dao.entity.User">
@@ -281,7 +281,7 @@
         #{dUpdateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="nStatus != null">
-        #{nStatus,jdbcType=SMALLINT},
+        #{nStatus,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -354,7 +354,7 @@
         d_update_time = #{record.dUpdateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.nStatus != null">
-        n_status = #{record.nStatus,jdbcType=SMALLINT},
+        n_status = #{record.nStatus,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -384,7 +384,7 @@
       n_coin = #{record.nCoin,jdbcType=INTEGER},
       d_create_time = #{record.dCreateTime,jdbcType=TIMESTAMP},
       d_update_time = #{record.dUpdateTime,jdbcType=TIMESTAMP},
-      n_status = #{record.nStatus,jdbcType=SMALLINT}
+      n_status = #{record.nStatus,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -445,7 +445,7 @@
         d_update_time = #{dUpdateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="nStatus != null">
-        n_status = #{nStatus,jdbcType=SMALLINT},
+        n_status = #{nStatus,jdbcType=INTEGER},
       </if>
     </set>
     where n_id = #{nId,jdbcType=BIGINT}
@@ -472,7 +472,7 @@
       n_coin = #{nCoin,jdbcType=INTEGER},
       d_create_time = #{dCreateTime,jdbcType=TIMESTAMP},
       d_update_time = #{dUpdateTime,jdbcType=TIMESTAMP},
-      n_status = #{nStatus,jdbcType=SMALLINT}
+      n_status = #{nStatus,jdbcType=INTEGER}
     where n_id = #{nId,jdbcType=BIGINT}
   </update>
   <select id="selectByExampleWithRowbounds" parameterType="com.guo.technologyforum.dao.entity.UserExample" resultMap="BaseResultMap">

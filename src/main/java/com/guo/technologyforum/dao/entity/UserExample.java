@@ -1345,52 +1345,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andNStatusEqualTo(Short value) {
+        public Criteria andNStatusEqualTo(Integer value) {
             addCriterion("n_status =", value, "nStatus");
             return (Criteria) this;
         }
 
-        public Criteria andNStatusNotEqualTo(Short value) {
+        public Criteria andNStatusNotEqualTo(Integer value) {
             addCriterion("n_status <>", value, "nStatus");
             return (Criteria) this;
         }
 
-        public Criteria andNStatusGreaterThan(Short value) {
+        public Criteria andNStatusGreaterThan(Integer value) {
             addCriterion("n_status >", value, "nStatus");
             return (Criteria) this;
         }
 
-        public Criteria andNStatusGreaterThanOrEqualTo(Short value) {
+        public Criteria andNStatusGreaterThanOrEqualTo(Integer value) {
             addCriterion("n_status >=", value, "nStatus");
             return (Criteria) this;
         }
 
-        public Criteria andNStatusLessThan(Short value) {
+        public Criteria andNStatusLessThan(Integer value) {
             addCriterion("n_status <", value, "nStatus");
             return (Criteria) this;
         }
 
-        public Criteria andNStatusLessThanOrEqualTo(Short value) {
+        public Criteria andNStatusLessThanOrEqualTo(Integer value) {
             addCriterion("n_status <=", value, "nStatus");
             return (Criteria) this;
         }
 
-        public Criteria andNStatusIn(List<Short> values) {
+        public Criteria andNStatusIn(List<Integer> values) {
             addCriterion("n_status in", values, "nStatus");
             return (Criteria) this;
         }
 
-        public Criteria andNStatusNotIn(List<Short> values) {
+        public Criteria andNStatusNotIn(List<Integer> values) {
             addCriterion("n_status not in", values, "nStatus");
             return (Criteria) this;
         }
 
-        public Criteria andNStatusBetween(Short value1, Short value2) {
+        public Criteria andNStatusBetween(Integer value1, Integer value2) {
             addCriterion("n_status between", value1, value2, "nStatus");
             return (Criteria) this;
         }
 
-        public Criteria andNStatusNotBetween(Short value1, Short value2) {
+        public Criteria andNStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("n_status not between", value1, value2, "nStatus");
             return (Criteria) this;
         }
