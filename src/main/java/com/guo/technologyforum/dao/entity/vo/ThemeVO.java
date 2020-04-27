@@ -8,7 +8,7 @@ import org.apache.ibatis.type.Alias;
 
 @Data
 public class ThemeVO {
-
+    private Long id;
     private User themeOwner;
     private Theme theme;
     private ThemeReply lastThemeReply = new ThemeReply();

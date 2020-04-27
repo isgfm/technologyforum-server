@@ -52,6 +52,7 @@ public class ThemeController {
     @RequireLogin
     public Result publishTheme(@RequestBody Theme theme){
         theme.setnUserId(UserUtil.currentUser().get().getnId());
+        theme.setdCreateTime(CommonUtil.getNowDate());
         return Result.success(themeService.addTheme(theme));
     }
 

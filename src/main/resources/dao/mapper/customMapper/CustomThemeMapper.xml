@@ -4,6 +4,7 @@
 
     <resultMap type="themeVO" id="themeVOResultMap">
 <!--        顺序很重要, 必须要一致,constructor ,  id   result  association-->
+        <id property="id" column="reply.n_id"/>
         <result property="countReply" column="countReply"/>
         <association property="lastThemeReply" javaType="themeReply"
                      resultMap="com.guo.technologyforum.dao.mapper.generateMapper.ThemeReplyMapper.BaseResultMap"
@@ -38,34 +39,35 @@
         <include refid="com.guo.technologyforum.dao.mapper.customMapper.CustomSql.prefixThemeReply">
             <property name="tabAlias" value="reply"/>
             <property name="prefix" value="themeReply_"/>
-        </include>,
-        count(reply.n_id) countReply from
+        </include>
+        ,count(reply.n_id) countReply
+        from
         t_theme left join t_user on t_theme.n_user_id=t_user.n_id
         left join (SELECT * from t_theme_reply order by d_reply_time desc) reply on t_theme.n_id=reply.n_theme_id
     </sql>
 
     <sql id="themeListSql">
         <include refid="themeListColum"></include>
-        where n_theme_class
+        where t_theme.n_theme_class
          <choose>
              <when test="tabRouter != null">
-                 in (SELECT c2.n_id FROM t_theme_class c1 inner JOIN t_theme_class c2 on c1.n_id=c2.n_parentid where c1.c_router=${tabRouter})
+                 in (SELECT c2.n_id FROM t_theme_class c1 inner JOIN t_theme_class c2 on c1.n_id=c2.n_parentid where c1.c_router=#{tabRouter})
              </when>
              <otherwise>
-                 = (select n_id from t_theme_class c3 where c3.c_router=${nodeRouter})
+                 = (select n_id from t_theme_class c3 where c3.c_router=#{nodeRouter})
              </otherwise>
          </choose>
         GROUP BY t_theme.n_id
         order by t_theme.d_create_time desc ,reply.d_reply_time desc
-        limit ${pageSize}
-        offset ${offset}
+        limit #{pageSize}
+        offset #{offset}
     </sql>
 
     <select id="getTodayHotTheme" resultMap="themeVOResultMap">
         <include refid="themeListColum"></include>
         where date(t_theme.d_create_time) = curdate()
         GROUP BY t_theme.n_id
-        order by t_theme.d_create_time desc ,count(*) desc
+        order by t_theme.d_create_time desc ,count(reply.n_id) desc
         limit #{limit}
     </select>
 
