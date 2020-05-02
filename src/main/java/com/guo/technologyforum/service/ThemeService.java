@@ -75,4 +75,11 @@ public class ThemeService {
         return customThemeMapper.countThemeByUserAttention(userId);
     }
 
+    public int updateThemeStatus(long themeId,int status){
+        Theme theme = new Theme();
+        theme.setnId(themeId);
+        theme.setnThemeStatus(status);
+        return themeMapper.updateByPrimaryKeySelective(theme);
+    }
+
 }

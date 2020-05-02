@@ -41,10 +41,7 @@ public class UserService {
         UserExample.Criteria criteria = userExample.createCriteria();
         criteria.andCUsernameEqualTo(userName);
         List<User> users = userMapper.selectByExample(userExample);
-        if(users.size() == 1)
-            return Optional.ofNullable(users.get(0));
-        else
-            return Optional.ofNullable(null);
+        return users.stream().findFirst();
     }
 
     public int addUser(User user){

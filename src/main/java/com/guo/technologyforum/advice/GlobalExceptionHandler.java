@@ -1,6 +1,7 @@
 package com.guo.technologyforum.advice;
 
 import com.guo.technologyforum.constant.ResultCode;
+import com.guo.technologyforum.exception.ThemeNotFoundException;
 import com.guo.technologyforum.result.Result;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -24,4 +25,13 @@ public class GlobalExceptionHandler {
         result.setResultCode(ResultCode.DATA_IS_WRONG);
         return result;
     }
+
+    @ExceptionHandler(ThemeNotFoundException.class)
+    @ResponseBody
+    public Result themeNotFoundExceptionHandler(HttpServletRequest request, Exception e){
+        Result result = new Result();
+        result.setResultCode(ResultCode.RESULE_DATA_NONE);
+        return result;
+    }
+
 }

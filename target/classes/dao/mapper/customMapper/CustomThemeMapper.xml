@@ -57,6 +57,7 @@
                  = (select n_id from t_theme_class c3 where c3.c_router=#{nodeRouter})
              </otherwise>
          </choose>
+        and t_theme.n_theme_status=1
         GROUP BY t_theme.n_id
         order by t_theme.d_create_time desc ,reply.d_reply_time desc
         limit #{pageSize}
@@ -66,6 +67,7 @@
     <select id="getTodayHotTheme" resultMap="themeVOResultMap">
         <include refid="themeListColum"></include>
         where date(t_theme.d_create_time) = curdate()
+        and t_theme.n_theme_status=1
         GROUP BY t_theme.n_id
         order by t_theme.d_create_time desc ,count(reply.n_id) desc
         limit #{limit}
@@ -121,6 +123,7 @@
     <select id="getThemeListByUserId" resultMap="themeVOResultMap">
         <include refid="themeListColum"></include>
         where t_theme.n_user_id = #{userId}
+        and t_theme.n_theme_status=1
         GROUP BY t_theme.n_id
         order by t_theme.d_create_time desc
         limit #{pageSize}
@@ -130,6 +133,7 @@
     <select id="getThemeListByUserAttention" resultMap="themeVOResultMap">
         <include refid="themeListColum"></include>
         where t_theme.n_user_id in (select n_attention_user_id from t_user_attention where n_user_id = #{userId})
+        and t_theme.n_theme_status=1
         GROUP BY t_theme.n_id
         order by t_theme.d_create_time desc
         limit #{pageSize}
@@ -139,6 +143,7 @@
     <select id="getThemeListByUserKeep" resultMap="themeVOResultMap">
         <include refid="themeListColum"></include>
         where t_theme.n_id in (select n_theme_id from t_keep_theme where n_user_id = #{userId})
+        and t_theme.n_theme_status=1
         GROUP BY t_theme.n_id
         order by t_theme.d_create_time desc
         limit #{pageSize}
@@ -148,6 +153,7 @@
     <select id="countThemeByUserAttention" resultType="long">
         select count(1) from t_theme
         where t_theme.n_user_id in (select n_attention_user_id from t_user_attention where n_user_id = #{userId})
+        and t_theme.n_theme_status=1
     </select>
 
 </mapper>

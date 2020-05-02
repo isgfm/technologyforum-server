@@ -1,19 +1,15 @@
 package com.guo.technologyforum.controller;
 
-import com.guo.technologyforum.annotation.CheckThemeExist;
+import com.guo.technologyforum.annotation.CheckThemeExistStatus;
 import com.guo.technologyforum.annotation.RequireLogin;
 import com.guo.technologyforum.dao.entity.KeepNode;
 import com.guo.technologyforum.dao.entity.KeepTheme;
-import com.guo.technologyforum.dao.entity.vo.KeepCountVO;
 import com.guo.technologyforum.result.Result;
 import com.guo.technologyforum.service.KeepService;
 import com.guo.technologyforum.service.UserService;
-import com.guo.technologyforum.util.CommonUtil;
 import com.guo.technologyforum.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.UUID;
 
 /**
  * @description:
@@ -43,14 +39,14 @@ public class KeepController {
 
     @PutMapping("/theme/{themeId}")
     @RequireLogin
-    @CheckThemeExist
+    @CheckThemeExistStatus
     public Result putKeepTheme(@PathVariable("themeId")long themeId){
         return Result.success(keepService.addKeepTheme(UserUtil.currentUser().get().getnId(),themeId));
     }
 
     @DeleteMapping("/theme/{themeId}")
     @RequireLogin
-    @CheckThemeExist
+    @CheckThemeExistStatus
     public Result deletekeepTheme(@PathVariable("themeId")long themeId){
         return Result.success(keepService.deleteKeepTheme(UserUtil.currentUser().get().getnId(),themeId));
     }

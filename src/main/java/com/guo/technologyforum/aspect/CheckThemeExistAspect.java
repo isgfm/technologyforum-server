@@ -1,6 +1,7 @@
 package com.guo.technologyforum.aspect;
 
 import com.guo.technologyforum.constant.ResultCode;
+import com.guo.technologyforum.constant.ThemeConstant;
 import com.guo.technologyforum.dao.entity.Theme;
 import com.guo.technologyforum.result.Result;
 import com.guo.technologyforum.service.ThemeService;
@@ -25,7 +26,7 @@ public class CheckThemeExistAspect {
     @Autowired
     ThemeService themeService;
 
-    @Pointcut(value = "@annotation(com.guo.technologyforum.annotation.CheckThemeExist)")
+    @Pointcut(value = "@annotation(com.guo.technologyforum.annotation.CheckThemeExistStatus)")
     public void ThemeExistCut(){}
 
     @Around("ThemeExistCut()")
@@ -34,11 +35,19 @@ public class CheckThemeExistAspect {
         long themeId = (long) args[0];
         Result result = new Result();
         Optional<Theme> themeOptional = themeService.getThemeByThemeId(themeId);
-        if(themeOptional.isPresent())
-            return point.proceed();
 
-        result.setResultCode(ResultCode.RESULE_DATA_NONE);
-        return result;
+        if(!themeOptional.isPresent()){
+            result.setResultCode(ResultCode.RESULE_DATA_NONE);
+            return result;
+        }
+
+        if(themeOptional.get().getnThemeStatus()!= ThemeConstant.THEME_STATUS_NORMAL){
+            result.setResultCode(ResultCode.THEME_HIDE);
+            return result;
+        }
+
+        return point.proceed();
+
     }
 
 }

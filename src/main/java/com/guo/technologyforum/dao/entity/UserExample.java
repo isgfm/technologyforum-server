@@ -1394,6 +1394,66 @@ public class UserExample {
             addCriterion("n_status not between", value1, value2, "nStatus");
             return (Criteria) this;
         }
+
+        public Criteria andNAdminIsNull() {
+            addCriterion("n_admin is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNAdminIsNotNull() {
+            addCriterion("n_admin is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNAdminEqualTo(Integer value) {
+            addCriterion("n_admin =", value, "nAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andNAdminNotEqualTo(Integer value) {
+            addCriterion("n_admin <>", value, "nAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andNAdminGreaterThan(Integer value) {
+            addCriterion("n_admin >", value, "nAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andNAdminGreaterThanOrEqualTo(Integer value) {
+            addCriterion("n_admin >=", value, "nAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andNAdminLessThan(Integer value) {
+            addCriterion("n_admin <", value, "nAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andNAdminLessThanOrEqualTo(Integer value) {
+            addCriterion("n_admin <=", value, "nAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andNAdminIn(List<Integer> values) {
+            addCriterion("n_admin in", values, "nAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andNAdminNotIn(List<Integer> values) {
+            addCriterion("n_admin not in", values, "nAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andNAdminBetween(Integer value1, Integer value2) {
+            addCriterion("n_admin between", value1, value2, "nAdmin");
+            return (Criteria) this;
+        }
+
+        public Criteria andNAdminNotBetween(Integer value1, Integer value2) {
+            addCriterion("n_admin not between", value1, value2, "nAdmin");
+            return (Criteria) this;
+        }
     }
 
     /**

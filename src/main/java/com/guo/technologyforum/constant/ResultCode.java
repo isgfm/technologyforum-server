@@ -33,6 +33,7 @@ public enum  ResultCode {
     DATA_IS_WRONG(50002, "重复插入"),
     DATA_ALREADY_EXISTED(50003, "数据已存在"),
     THEMECLASS_DATA_NONE(50004, "节点不存在"),
+    THEME_HIDE(50005, "主题被隐藏"),
 
     /* 接口错误：60001-69999 */
     INTERFACE_INNER_INVOKE_ERROR(60001, "内部系统接口调用异常"),

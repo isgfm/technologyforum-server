@@ -16,4 +16,10 @@ public final class ThemeConstant {
 
     /** 主题点击初始值*/
     public static int THEME_CLICK_INITIAL = 1;
+
+    /** 主题正常*/
+    public static int THEME_STATUS_NORMAL = 1;
+
+    /** 主题隐藏*/
+    public static int THEME_STATUS_HIDE = 2;
 }
