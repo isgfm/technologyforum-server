@@ -24,8 +24,9 @@ public class ThemeService {
     UserService userService;
 
 
-    public int addTheme(Theme theme){
-        return themeMapper.insert(theme);
+    public long addTheme(Theme theme){
+        themeMapper.insert(theme);
+        return theme.getnId();
     }
 
     public List<ThemeVO> getThemeListByNodeId(String nodeRouter, int page, int pageSize){

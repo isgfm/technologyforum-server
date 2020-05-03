@@ -37,7 +37,9 @@
          <!--要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
 
 <!--        <table tableName="t_theme_class" domainObjectName="ThemeClass"></table>-->
-<!--        <table tableName="t_theme" domainObjectName="Theme"></table>-->
+        <table tableName="t_theme" domainObjectName="Theme">
+            <generatedKey column="n_id" sqlStatement="JDBC" identity="true"/>
+        </table>
 <!--        <table tableName="t_announce" domainObjectName="Announce"></table>-->
 <!--        <table tableName="t_announce_user" domainObjectName="AnnounceUser"></table>-->
 <!--        <table tableName="t_keep_node" domainObjectName="KeepNode"></table>-->
@@ -47,7 +49,9 @@
 <!--        <table tableName="t_role" domainObjectName="Role"></table>-->
 <!--        <table tableName="t_role_right" domainObjectName="Role_right"></table>-->
 <!--        <table tableName="t_theme_reply" domainObjectName="ThemeReply"></table>-->
-        <table tableName="t_user" domainObjectName="User"></table>
+<!--        <table tableName="t_user" domainObjectName="User">-->
+<!--            <generatedKey column="n_id" sqlStatement="JDBC" identity="true"/>-->
+<!--        </table>-->
 <!--        <table tableName="t_user_attention" domainObjectName="UserAttention"></table>-->
 <!--        <table tableName="t_user_block" domainObjectName="UserBlock"></table>-->
     </context>
