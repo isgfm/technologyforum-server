@@ -4,8 +4,10 @@ import com.alibaba.fastjson.support.spring.annotation.FastJsonFilter;
 import com.alibaba.fastjson.support.spring.annotation.FastJsonView;
 import com.guo.technologyforum.annotation.RequireLogin;
 import com.guo.technologyforum.constant.ResultCode;
+import com.guo.technologyforum.constant.UserConstant;
 import com.guo.technologyforum.dao.entity.User;
 import com.guo.technologyforum.dao.entity.vo.KeepCountVO;
+import com.guo.technologyforum.exception.UserNotFoundException;
 import com.guo.technologyforum.result.Result;
 import com.guo.technologyforum.service.KeepService;
 import com.guo.technologyforum.service.NotifyService;
@@ -98,6 +100,23 @@ public class UserController {
         return Result.success(keepCountVO);
     }
 
+    @GetMapping("/block/{userId}")
+    public Result isUserHasBlock(@PathVariable("userId")long userId){
+        return Result.success(userService.getUserByUserId(userId)
+        .orElseThrow(()->new UserNotFoundException())
+        .getnStatus()== UserConstant.USER_STATUS_BLOCK);
+    }
 
+    @PutMapping("/block/{userId}")
+    @RequireLogin(needAdmin = true)
+    public Result blockUser(@PathVariable("userId")long userId){
+        return Result.success(userService.updateUserBlock(userId,UserConstant.USER_STATUS_BLOCK));
+    }
+
+    @GetMapping("/block/cancle/{userId}")
+    @RequireLogin(needAdmin = true)
+    public Result cancleBlockUser(@PathVariable("userId")long userId){
+        return Result.success(userService.updateUserBlock(userId,UserConstant.USER_STATUS_NORMAL));
+    }
 
 }

@@ -39,6 +39,7 @@ public class NotifyService {
 
     public int addNotifyByThemeReply(User currentUser,Theme theme){
         Notify notify = new Notify();
+        notify.setnThemeId(theme.getnId());
         notify.setnSendUserId(currentUser.getnId());
         notify.setdCreateTime(CommonUtil.getNowDate());
         notify.setnNotifyType(NotifyConstant.NOTIFY_TYPE_THEME_MENTION);

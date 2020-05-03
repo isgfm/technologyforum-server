@@ -21,6 +21,7 @@ public enum  ResultCode {
     USER_Register_ERROR(20006, "用户注册错误"),
     CAPTCHA_ERROR(20007, "验证码错误"),
     CAPTCHA_EXPIRED(20008, "验证码过期"),
+    USER_HAS_BLOCK(20009, "用户被封禁"),
 
     /* 业务错误：30001-39999 */
     SPECIFIED_QUESTIONED_USER_NOT_EXIST(30001, "某业务出现问题"),

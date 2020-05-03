@@ -37,7 +37,7 @@ public class ThemeReplyController {
     }
 
     @PostMapping("reply")
-    @RequireLogin
+    @RequireLogin(needUserStateNormal = true)
     public Result reply(@RequestBody ThemeReply themeReply){
         List<Long> userIdList = UserUtil.searchUserIdFromReplyContent(themeReply.getcReplyContent());
         User currentUser = UserUtil.currentUser().get();

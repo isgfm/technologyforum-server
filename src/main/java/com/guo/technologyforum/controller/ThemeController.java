@@ -52,7 +52,7 @@ public class ThemeController {
      * @return com.guo.technologyforum.result.Result
      */
     @PostMapping("/publish")
-    @RequireLogin
+    @RequireLogin(needUserStateNormal = true)
     public Result publishTheme(@RequestBody Theme theme){
         theme.setnUserId(UserUtil.currentUser().get().getnId());
         theme.setdCreateTime(CommonUtil.getNowDate());
@@ -204,6 +204,7 @@ public class ThemeController {
      * @return com.guo.technologyforum.result.Result
      */
     @PutMapping("/hide/{themeId}")
+    @RequireLogin(needAdmin = true)
     public Result hideTheme(@PathVariable("themeId")long themeId){
         return Result.success(themeService.updateThemeStatus(themeId,ThemeConstant.THEME_STATUS_HIDE));
     }
@@ -214,6 +215,7 @@ public class ThemeController {
      * @return com.guo.technologyforum.result.Result
      */
     @PutMapping("/hide/cancle/{themeId}")
+    @RequireLogin(needAdmin = true)
     public Result cancleHideTheme(@PathVariable("themeId")long themeId){
         return Result.success(themeService.updateThemeStatus(themeId,ThemeConstant.THEME_STATUS_NORMAL));
     }

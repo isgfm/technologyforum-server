@@ -72,6 +72,11 @@ public class UserService {
         return Optional.ofNullable(userMapper.selectByPrimaryKey(userId));
     }
 
-
+    public int updateUserBlock(long userId,int status){
+        User user = new User();
+        user.setnId(userId);
+        user.setnStatus(status);
+        return userMapper.updateByPrimaryKeySelective(user);
+    }
 
 }

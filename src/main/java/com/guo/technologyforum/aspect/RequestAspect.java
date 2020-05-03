@@ -1,6 +1,8 @@
 package com.guo.technologyforum.aspect;
 
+import com.guo.technologyforum.annotation.RequireLogin;
 import com.guo.technologyforum.constant.ResultCode;
+import com.guo.technologyforum.constant.UserConstant;
 import com.guo.technologyforum.dao.entity.User;
 import com.guo.technologyforum.result.Result;
 import com.guo.technologyforum.util.UserUtil;
@@ -19,15 +21,28 @@ public class RequestAspect {
     @Pointcut(value = "@annotation(com.guo.technologyforum.annotation.RequireLogin)")
     public void loginCut(){}
 
-    @Around("loginCut()")
-    public Object around(ProceedingJoinPoint point) throws Throwable {
-        Optional<User> user = UserUtil.currentUser();
-        if(!user.isPresent()){
-            Result r = new Result();
+    @Around("loginCut()&&@annotation(requireLogin)")
+    public Object around(ProceedingJoinPoint point, RequireLogin requireLogin) throws Throwable {
+        Optional<User> currentUser = UserUtil.currentUser();
+        boolean needAdmin = requireLogin.needAdmin();
+        boolean needUserStateNormal = requireLogin.needUserStateNormal();
+        Result r = new Result();
+        if(!currentUser.isPresent()){
             r.setResultCode(ResultCode.USER_NOT_LOGGED_IN);
             return r;
-        } else{
-            return point.proceed();
         }
+
+        User user = currentUser.get();
+        if(needAdmin&&user.getnAdmin()!= UserConstant.USER_ADMIN){
+            r.setResultCode(ResultCode.PERMISSION_NO_ACCESS);
+            return r;
+        }
+
+        if(needUserStateNormal&&user.getnStatus()==UserConstant.USER_STATUS_BLOCK){
+            r.setResultCode(ResultCode.USER_HAS_BLOCK);
+            return r;
+        }
+
+        return point.proceed();
     }
 }

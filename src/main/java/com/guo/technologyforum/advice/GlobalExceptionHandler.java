@@ -2,6 +2,7 @@ package com.guo.technologyforum.advice;
 
 import com.guo.technologyforum.constant.ResultCode;
 import com.guo.technologyforum.exception.ThemeNotFoundException;
+import com.guo.technologyforum.exception.UserNotFoundException;
 import com.guo.technologyforum.result.Result;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -31,6 +32,14 @@ public class GlobalExceptionHandler {
     public Result themeNotFoundExceptionHandler(HttpServletRequest request, Exception e){
         Result result = new Result();
         result.setResultCode(ResultCode.RESULE_DATA_NONE);
+        return result;
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    @ResponseBody
+    public Result userNotFoundExceptionHandler(HttpServletRequest request, Exception e){
+        Result result = new Result();
+        result.setResultCode(ResultCode.USER_NOT_EXIST);
         return result;
     }
 
