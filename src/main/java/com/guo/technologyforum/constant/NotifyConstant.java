@@ -11,4 +11,8 @@ public final class NotifyConstant {
 
     /** 主题回复提醒*/
     public static int NOTIFY_TYPE_THEME_REPLY = 2;
+
+    public static boolean READED = true;
+
+    public static boolean UNREAD = false;
 }

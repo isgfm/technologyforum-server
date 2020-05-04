@@ -78,5 +78,16 @@
         ${tabAlias}.n_reply_id as ${prefix}n_reply_id
     </sql>
 
+    <sql id="prefixNotify">
+        ${tabAlias}.n_id as ${prefix}n_id,
+        ${tabAlias}.n_send_user_id as ${prefix}n_send_user_id,
+        ${tabAlias}.n_notify_type as ${prefix}n_notify_type,
+        ${tabAlias}.n_receive_user_id as ${prefix}n_receive_user_id,
+        ${tabAlias}.b_status as ${prefix}b_status,
+        ${tabAlias}.d_create_time as ${prefix}d_create_time,
+        ${tabAlias}.d_read_time as ${prefix}d_read_time,
+        ${tabAlias}.c_message as ${prefix}c_message,
+        ${tabAlias}.n_theme_id as ${prefix}n_theme_id
+    </sql>
 
 </mapper>

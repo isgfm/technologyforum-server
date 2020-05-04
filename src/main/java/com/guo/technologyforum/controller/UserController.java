@@ -3,6 +3,7 @@ package com.guo.technologyforum.controller;
 import com.alibaba.fastjson.support.spring.annotation.FastJsonFilter;
 import com.alibaba.fastjson.support.spring.annotation.FastJsonView;
 import com.guo.technologyforum.annotation.RequireLogin;
+import com.guo.technologyforum.constant.NotifyConstant;
 import com.guo.technologyforum.constant.ResultCode;
 import com.guo.technologyforum.constant.UserConstant;
 import com.guo.technologyforum.dao.entity.User;
@@ -96,7 +97,7 @@ public class UserController {
         keepCountVO.setKeepNodeCount(keepService.countKeepNodeByUserId(userId));
         keepCountVO.setKeepThemeCount(keepService.countKeepThemeByUserId(userId));
         keepCountVO.setAttentionCount(relationService.countUserAttention(userId));
-        keepCountVO.setNotifyCount(notifyService.countNotifyByUserId(userId));
+        keepCountVO.setNotifyCount(notifyService.countNotifyByUserId(userId, NotifyConstant.UNREAD));
         return Result.success(keepCountVO);
     }
 
