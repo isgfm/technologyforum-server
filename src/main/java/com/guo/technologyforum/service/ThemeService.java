@@ -1,10 +1,14 @@
 package com.guo.technologyforum.service;
 
+import com.guo.technologyforum.constant.ThemeConstant;
 import com.guo.technologyforum.dao.entity.Theme;
 import com.guo.technologyforum.dao.entity.ThemeExample;
+import com.guo.technologyforum.dao.entity.vo.ThemePageVO;
 import com.guo.technologyforum.dao.entity.vo.ThemeVO;
 import com.guo.technologyforum.dao.mapper.customMapper.CustomThemeMapper;
 import com.guo.technologyforum.dao.mapper.generateMapper.ThemeMapper;
+import com.guo.technologyforum.util.CommonUtil;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -81,6 +85,17 @@ public class ThemeService {
         theme.setnId(themeId);
         theme.setnThemeStatus(status);
         return themeMapper.updateByPrimaryKeySelective(theme);
+    }
+
+    public ThemePageVO getThemeListBySearch(String searchContent,int page, int pageSize){
+        String searchWordsRegex = CommonUtil.regexSearchWords(searchContent);
+        List<Object> result = customThemeMapper.getThemeListBySearch(searchWordsRegex,(page-1)*pageSize,pageSize);
+        ThemePageVO themePageVO;
+        if(CollectionUtils.isNotEmpty(result))
+            themePageVO = new ThemePageVO((List<ThemeVO>) result.get(0),((List<Long>)result.get(1)).get(0));
+        else
+            themePageVO = new ThemePageVO(ThemeConstant.RMPTY_THEME_LIST,0L);
+        return themePageVO;
     }
 
 }

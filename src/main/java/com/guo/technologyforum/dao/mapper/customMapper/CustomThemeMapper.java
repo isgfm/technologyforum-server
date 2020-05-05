@@ -25,4 +25,6 @@ public interface CustomThemeMapper {
     List<ThemeVO> getThemeListByUserKeep(long userId, int offset, int pageSize);
 
     long countThemeByUserAttention(long userId);
+
+    List<Object> getThemeListBySearch(String searchWordsRegex, int offset, int pageSize);
 }

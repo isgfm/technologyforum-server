@@ -39,11 +39,7 @@ public class ThemeController {
 
     @GetMapping("/test")
     public Result test(){
-        Theme theme = new Theme();
-        theme.setcThemeTitle("title");
-        theme.setcThemeContent("content");
-        theme.setnThemeClass(1);
-        return Result.success(theme);
+        return Result.success(themeService.getThemeListBySearch("测试",1,10));
     }
 
     /**
@@ -218,5 +214,12 @@ public class ThemeController {
     @RequireLogin(needAdmin = true)
     public Result cancleHideTheme(@PathVariable("themeId")long themeId){
         return Result.success(themeService.updateThemeStatus(themeId,ThemeConstant.THEME_STATUS_NORMAL));
+    }
+
+    @PostMapping("/themelist/search")
+    public Result getSearchThemeList(@RequestParam("searchContent") String searchContent,
+                                     @RequestParam("page")int page,
+                                     @RequestParam("pageSize")int pageSize){
+        return Result.success(themeService.getThemeListBySearch(searchContent,page,pageSize));
     }
 }

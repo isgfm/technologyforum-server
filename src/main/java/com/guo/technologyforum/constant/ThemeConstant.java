@@ -1,5 +1,10 @@
 package com.guo.technologyforum.constant;
 
+import com.guo.technologyforum.dao.entity.vo.ThemeVO;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public final class ThemeConstant {
 
     /** tabs*/
@@ -22,4 +27,6 @@ public final class ThemeConstant {
 
     /** 主题隐藏*/
     public static int THEME_STATUS_HIDE = 2;
+
+    public static final List<ThemeVO> RMPTY_THEME_LIST = new ArrayList<>();
 }
