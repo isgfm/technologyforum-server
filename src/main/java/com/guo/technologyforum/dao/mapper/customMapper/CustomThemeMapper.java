@@ -27,4 +27,6 @@ public interface CustomThemeMapper {
     long countThemeByUserAttention(long userId);
 
     List<Object> getThemeListBySearch(String searchWordsRegex, int offset, int pageSize);
+
+    List<Object> getHideThemeList(int offset, int pageSize);
 }

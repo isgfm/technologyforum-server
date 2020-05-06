@@ -195,6 +195,18 @@ public class ThemeController {
     }
 
     /**
+     * TODO 获得被隐藏的主题列表
+     * @param
+     * @return com.guo.technologyforum.result.Result
+     */
+    @GetMapping("/hide/themelist")
+    @RequireLogin(needAdmin = true)
+    public Result getHideThemeList(@RequestParam("page")int page,
+                                   @RequestParam("pageSize")int pageSize){
+        return Result.success(themeService.getHideThemeList(page,pageSize));
+    }
+
+    /**
      * TODO 隐藏主题
      * @param themeId
      * @return com.guo.technologyforum.result.Result

@@ -90,6 +90,15 @@ public class ThemeService {
     public ThemePageVO getThemeListBySearch(String searchContent,int page, int pageSize){
         String searchWordsRegex = CommonUtil.regexSearchWords(searchContent);
         List<Object> result = customThemeMapper.getThemeListBySearch(searchWordsRegex,(page-1)*pageSize,pageSize);
+        return handleMultiResult(result);
+    }
+
+    public ThemePageVO getHideThemeList(int page, int pageSize){
+        List<Object> result = customThemeMapper.getHideThemeList((page-1)*pageSize,pageSize);
+        return handleMultiResult(result);
+    }
+
+    private ThemePageVO handleMultiResult(List<Object> result){
         ThemePageVO themePageVO;
         if(CollectionUtils.isNotEmpty(result))
             themePageVO = new ThemePageVO((List<ThemeVO>) result.get(0),((List<Long>)result.get(1)).get(0));
