@@ -114,6 +114,13 @@ public class UserController {
         return Result.success(userService.updateUserBlock(userId,UserConstant.USER_STATUS_BLOCK));
     }
 
+    @GetMapping("/block/userlist")
+    @RequireLogin(needAdmin = true)
+    public Result getBlockUserList(@RequestParam("page")int page,
+                                   @RequestParam("pageSize")int pageSize){
+        return Result.success(userService.getBlockUserList(page,pageSize));
+    }
+
     @GetMapping("/block/cancle/{userId}")
     @RequireLogin(needAdmin = true)
     public Result cancleBlockUser(@PathVariable("userId")long userId){

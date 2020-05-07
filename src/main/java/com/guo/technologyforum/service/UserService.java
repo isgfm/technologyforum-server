@@ -1,14 +1,17 @@
 package com.guo.technologyforum.service;
 
+import com.guo.technologyforum.constant.UserConstant;
 import com.guo.technologyforum.dao.entity.KeepThemeExample;
 import com.guo.technologyforum.dao.entity.User;
 import com.guo.technologyforum.dao.entity.UserAttentionExample;
 import com.guo.technologyforum.dao.entity.UserExample;
+import com.guo.technologyforum.dao.entity.vo.UserPageVO;
 import com.guo.technologyforum.dao.mapper.customMapper.CustomUserMapper;
 import com.guo.technologyforum.dao.mapper.generateMapper.UserAttentionMapper;
 import com.guo.technologyforum.dao.mapper.generateMapper.UserMapper;
 import com.guo.technologyforum.util.CommonUtil;
 import com.guo.technologyforum.util.EncryptUtil;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -77,6 +80,17 @@ public class UserService {
         user.setnId(userId);
         user.setnStatus(status);
         return userMapper.updateByPrimaryKeySelective(user);
+    }
+
+    public UserPageVO getBlockUserList(int page, int pageSize){
+        List<Object> result = customUserMapper.getBlockUserList((page-1)*pageSize,pageSize);
+        UserPageVO userPageVO;
+        if(CollectionUtils.isNotEmpty(result)){
+            userPageVO = new UserPageVO((List<User>) result.get(0),((List<Long>) result.get(1)).get(0));
+        }else{
+            userPageVO = new UserPageVO(UserConstant.RMPTY_USER_LIST,0L);
+        }
+        return userPageVO;
     }
 
 }

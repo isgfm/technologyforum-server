@@ -9,4 +9,6 @@ import java.util.List;
 public interface CustomUserMapper {
 
     List<User> getUserListFromThemeReply(long themeId);
+
+    List<Object> getBlockUserList(int offset, int pageSize);
 }

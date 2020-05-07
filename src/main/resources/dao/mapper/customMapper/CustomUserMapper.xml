@@ -8,9 +8,23 @@
         <result property="cUsername" column="user_cUsername"/>
     </resultMap>
 
+
     <select id="getUserListFromThemeReply" resultMap="UserResultMap">
         select distinct t_user.n_id as user_nId,t_user.c_username as user_cUsername from
         t_theme_reply reply left join t_user on reply.n_user_id = t_user.n_id
         where reply.n_theme_id = #{themeId}
+    </select>
+
+    <select id="getBlockUserList" resultMap="com.guo.technologyforum.dao.mapper.generateMapper.UserMapper.BaseResultMap,com.guo.technologyforum.dao.mapper.customMapper.CustomThemeMapper.recordCounts">
+        select
+        SQL_CALC_FOUND_ROWS
+        *
+        from
+        t_user
+        where
+        t_user.n_status=1
+        limit #{pageSize}
+        offset #{offset}
+        ;SELECT found_rows() AS recordCounts;
     </select>
 </mapper>
