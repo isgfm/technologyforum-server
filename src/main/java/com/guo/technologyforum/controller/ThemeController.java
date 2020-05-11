@@ -159,6 +159,7 @@ public class ThemeController {
      * @return com.guo.technologyforum.result.Result
      */
     @GetMapping("/{themeId}")
+    @CheckThemeExistStatus
     public Result getThemeByThemeId(@PathVariable("themeId")long themeId){
         Optional<ThemeVO> optionalThemeVO = themeService.getThemeVOByThemeId(themeId);
         if(optionalThemeVO.isPresent()){
@@ -222,7 +223,7 @@ public class ThemeController {
      * @param themeId
      * @return com.guo.technologyforum.result.Result
      */
-    @PutMapping("/hide/cancle/{themeId}")
+    @PutMapping("/cancle/hide/{themeId}")
     @RequireLogin(needAdmin = true)
     public Result cancleHideTheme(@PathVariable("themeId")long themeId){
         return Result.success(themeService.updateThemeStatus(themeId,ThemeConstant.THEME_STATUS_NORMAL));

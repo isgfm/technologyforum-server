@@ -2,9 +2,12 @@ package com.guo.technologyforum.aspect;
 
 import com.guo.technologyforum.constant.ResultCode;
 import com.guo.technologyforum.constant.ThemeConstant;
+import com.guo.technologyforum.constant.UserConstant;
 import com.guo.technologyforum.dao.entity.Theme;
+import com.guo.technologyforum.dao.entity.User;
 import com.guo.technologyforum.result.Result;
 import com.guo.technologyforum.service.ThemeService;
+import com.guo.technologyforum.util.UserUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -40,8 +43,12 @@ public class CheckThemeExistAspect {
             result.setResultCode(ResultCode.RESULE_DATA_NONE);
             return result;
         }
+        boolean isAdmin = false;
+        if(UserUtil.currentUser().isPresent()){
+            isAdmin=UserUtil.currentUser().get().getnAdmin()== UserConstant.USER_ADMIN;
+        }
 
-        if(themeOptional.get().getnThemeStatus()!= ThemeConstant.THEME_STATUS_NORMAL){
+        if(themeOptional.get().getnThemeStatus()!= ThemeConstant.THEME_STATUS_NORMAL&&!isAdmin){
             result.setResultCode(ResultCode.THEME_HIDE);
             return result;
         }
