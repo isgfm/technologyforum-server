@@ -10,6 +10,7 @@ import com.guo.technologyforum.service.UserService;
 import com.guo.technologyforum.shiro.ShiroRedisDAO;
 import com.guo.technologyforum.shiro.ShiroSessionManager;
 import com.guo.technologyforum.util.CommonUtil;
+import com.guo.technologyforum.util.UserUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.LockedAccountException;
@@ -73,6 +74,7 @@ public class LoginController {
         }
         String oldPassword = user.getcPassword();
         userService.encryptUserPassword(user);
+        user.setcAvatar(UserUtil.randomAvatar());
         int id = userService.addUser(user);
         if(id>0){
             user.setcPassword(oldPassword);
