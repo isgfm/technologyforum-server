@@ -168,11 +168,17 @@ public class ThemeController {
             themeVO.setKeepCount(keepService.countThemeKeep(themeId));
             return Result.success(themeVO);
         }
-        else
+        else{
             return Result.customize(ResultCode.RESULE_DATA_NONE,Result.VALUE_NULL);
+        }
+
     }
 
-    //redis存点击量
+    /**
+     * TODO redis点击量
+     * @param id
+     * @return com.guo.technologyforum.result.Result
+     */
     @GetMapping("click")
     @CheckThemeExistStatus
     public Result click(@RequestParam("id")long id){

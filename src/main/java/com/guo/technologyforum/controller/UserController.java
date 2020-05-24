@@ -6,6 +6,7 @@ import com.guo.technologyforum.annotation.RequireLogin;
 import com.guo.technologyforum.constant.NotifyConstant;
 import com.guo.technologyforum.constant.ResultCode;
 import com.guo.technologyforum.constant.UserConstant;
+import com.guo.technologyforum.constant.UserPermission;
 import com.guo.technologyforum.dao.entity.User;
 import com.guo.technologyforum.dao.entity.vo.KeepCountVO;
 import com.guo.technologyforum.exception.UserNotFoundException;
@@ -16,6 +17,7 @@ import com.guo.technologyforum.service.RelationService;
 import com.guo.technologyforum.service.UserService;
 import com.guo.technologyforum.util.JsonUtil;
 import com.guo.technologyforum.util.UserUtil;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -87,6 +89,8 @@ public class UserController {
         User currentUser = UserUtil.currentUser().get();
         user.setnId(currentUser.getnId());
         userService.saveUser(user);
+        //准备重构
+        SecurityUtils.getSubject().getSession().setAttribute(UserPermission.CURRENT_USER, user);
         return Result.success();
     }
 

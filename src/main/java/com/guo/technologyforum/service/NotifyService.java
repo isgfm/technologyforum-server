@@ -32,13 +32,17 @@ public class NotifyService {
 
     public void notifyCauseByThemeReply(List<Long> userIdList, User currentUser,Long themeId){
         //提醒@的人
-        if(userIdList.size()>0)
+        if(userIdList.size()>0){
             addNotifyByMention(userIdList,currentUser,themeId);
+        }
+
 
         //提醒发布主题的人
         Theme theme = themeService.getThemeByThemeId(themeId).get();
-        if(theme.getnUserId() != currentUser.getnId())
+        if(!theme.getnUserId().equals(currentUser.getnId())){
             addNotifyByThemeReply(currentUser,theme);
+        }
+
     }
 
     public int addNotifyByThemeReply(User currentUser,Theme theme){
@@ -47,7 +51,7 @@ public class NotifyService {
         notify.setnThemeId(theme.getnId());
         notify.setnSendUserId(currentUser.getnId());
         notify.setdCreateTime(CommonUtil.getNowDate());
-        notify.setnNotifyType(NotifyConstant.NOTIFY_TYPE_THEME_MENTION);
+        notify.setnNotifyType(NotifyConstant.NOTIFY_TYPE_THEME_REPLY);
         notify.setcMessage(String.valueOf(theme.getnId()));
         notify.setnReceiveUserId(theme.getnUserId());
         return notifyMapper.insert(notify);
@@ -60,6 +64,7 @@ public class NotifyService {
         notify.setdCreateTime(CommonUtil.getNowDate());
         notify.setnNotifyType(NotifyConstant.NOTIFY_TYPE_THEME_MENTION);
         notify.setcMessage(String.valueOf(themeId));
+        notify.setnThemeId(themeId);
         for(Long userId:userIdList){
             notify.setnSendUserId(userId);
             addNotify(notify);

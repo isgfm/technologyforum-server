@@ -16,6 +16,9 @@ public class UserConstant {
     /** 管理员*/
     public static int USER_ADMIN = 1;
 
+    /** 普通用户*/
+    public static int USER_NORMAL = 0;
+
     /** 封禁*/
     public static int USER_STATUS_BLOCK = 1;
 

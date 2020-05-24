@@ -45,7 +45,7 @@ public class CheckThemeExistAspect {
         }
         boolean isAdmin = false;
         if(UserUtil.currentUser().isPresent()){
-            isAdmin=UserUtil.currentUser().get().getnAdmin()== UserConstant.USER_ADMIN;
+            isAdmin= ((Integer) UserConstant.USER_ADMIN).equals(UserUtil.currentUser().get().getnAdmin());
         }
 
         if(themeOptional.get().getnThemeStatus()!= ThemeConstant.THEME_STATUS_NORMAL&&!isAdmin){

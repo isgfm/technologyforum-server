@@ -33,12 +33,12 @@ public class RequestAspect {
         }
 
         User user = currentUser.get();
-        if(needAdmin&&user.getnAdmin()!= UserConstant.USER_ADMIN){
+        if(null!=user&&needAdmin&&user.getnAdmin()!= UserConstant.USER_ADMIN){
             r.setResultCode(ResultCode.PERMISSION_NO_ACCESS);
             return r;
         }
 
-        if(needUserStateNormal&&user.getnStatus()==UserConstant.USER_STATUS_BLOCK){
+        if(null!=user&&needUserStateNormal&&((Integer)UserConstant.USER_STATUS_BLOCK).equals(user.getnStatus())){
             r.setResultCode(ResultCode.USER_HAS_BLOCK);
             return r;
         }

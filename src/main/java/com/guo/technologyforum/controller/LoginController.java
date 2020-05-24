@@ -2,6 +2,7 @@ package com.guo.technologyforum.controller;
 
 import com.guo.technologyforum.annotation.CheckCaptcha;
 import com.guo.technologyforum.constant.ResultCode;
+import com.guo.technologyforum.constant.UserConstant;
 import com.guo.technologyforum.constant.UserPermission;
 import com.guo.technologyforum.dao.entity.User;
 import com.guo.technologyforum.dao.entity.dto.LoginDTO;
@@ -65,6 +66,7 @@ public class LoginController {
     }
 
     @PostMapping("/register")
+    @CheckCaptcha
     public Result register(@RequestBody LoginDTO loginDTO,HttpServletRequest request){
         Result r = new Result();
         User user = initUser(loginDTO);
@@ -75,6 +77,8 @@ public class LoginController {
         String oldPassword = user.getcPassword();
         userService.encryptUserPassword(user);
         user.setcAvatar(UserUtil.randomAvatar());
+        user.setnAdmin(UserConstant.USER_NORMAL);
+        user.setnStatus(UserConstant.USER_STATUS_NORMAL);
         int id = userService.addUser(user);
         if(id>0){
             user.setcPassword(oldPassword);
