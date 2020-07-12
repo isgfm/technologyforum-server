@@ -10,11 +10,14 @@ import com.guo.technologyforum.service.ThemeReplyService;
 import com.guo.technologyforum.service.UserService;
 import com.guo.technologyforum.util.CommonUtil;
 import com.guo.technologyforum.util.UserUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Api(tags = "主题回复接口")
 @RestController
 @RequestMapping("api/themereply")
 public class ThemeReplyController {
@@ -26,6 +29,7 @@ public class ThemeReplyController {
     NotifyService notifyService;
 
 
+    @ApiOperation(value = "根据主题id获得主题回复接口")
     @GetMapping("")
     public Result getThemeReply(@RequestParam("themeId")long themeId,@RequestParam("page")int page,@RequestParam("pageSize")int pageSize){
         ThemeReplyVO themeReplyVO = new ThemeReplyVO();
@@ -36,6 +40,7 @@ public class ThemeReplyController {
         return Result.success(themeReplyVO);
     }
 
+    @ApiOperation(value = "回复主题")
     @PostMapping("reply")
     @RequireLogin(needUserStateNormal = true)
     public Result reply(@RequestBody ThemeReply themeReply){

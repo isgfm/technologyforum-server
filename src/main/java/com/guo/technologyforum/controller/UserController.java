@@ -17,6 +17,7 @@ import com.guo.technologyforum.service.RelationService;
 import com.guo.technologyforum.service.UserService;
 import com.guo.technologyforum.util.JsonUtil;
 import com.guo.technologyforum.util.UserUtil;
+import io.swagger.annotations.Api;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+@Api(tags = "用户接口")
 @RestController
 @RequestMapping("api/user")
 public class UserController {

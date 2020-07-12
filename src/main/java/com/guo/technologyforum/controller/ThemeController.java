@@ -16,12 +16,14 @@ import com.guo.technologyforum.service.ThemeClassService;
 import com.guo.technologyforum.service.ThemeService;
 import com.guo.technologyforum.util.CommonUtil;
 import com.guo.technologyforum.util.UserUtil;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@Api(tags = "主题接口")
 @RestController
 @RequestMapping("api/theme")
 public class ThemeController {

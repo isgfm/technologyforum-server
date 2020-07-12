@@ -40,6 +40,13 @@ public class ShiroConfig {
         //filterChainDefinitionMap.put("/upload", "authc");
         //filterChainDefinitionMap.put("/users/currentUser", "authc");
 
+        filterChainDefinitionMap.put("/swagger-ui.html", "anon");
+        filterChainDefinitionMap.put("/swagger-resources", "anon");
+        filterChainDefinitionMap.put("/swagger-resources/**", "anon");
+        filterChainDefinitionMap.put("/v2/api-docs", "anon");
+        filterChainDefinitionMap.put("/webjars/springfox-swagger-ui/**", "anon");
+
+
         filterChainDefinitionMap.put("/**", "anon");
 
         //返回json数据，由前端跳转
