@@ -36,6 +36,20 @@
         ${tabAlias}.d_update_time as ${prefix}d_update_time
     </sql>
 
+    <sql id="prefixRight">
+        ${tabAlias}.n_id as ${prefix}n_id,
+        ${tabAlias}.c_right_value as ${prefix}c_right_value,
+        ${tabAlias}.c_name as ${prefix}c_name,
+        ${tabAlias}.d_create_time as ${prefix}d_create_time,
+        ${tabAlias}.n_pid as ${prefix}n_pid
+    </sql>
+
+    <sql id="prefixUserRight">
+        ${tabAlias}.n_user_id as ${prefix}n_user_id,
+        ${tabAlias}.n_right_id as ${prefix}n_right_id,
+        ${tabAlias}.d_create_time as ${prefix}d_create_time,
+    </sql>
+
     <sql id="prefixTheme">
         ${tabAlias}.n_id as ${prefix}n_id,
         ${tabAlias}.n_user_id as ${prefix}n_user_id,

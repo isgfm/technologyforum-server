@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guo.technologyforum.dao.mapper.customMapper.CustomRightMapper">
+
+    <resultMap id="rightBO" type="RightBO">
+        <result property="userId" column="n_id"></result>
+        <collection property="rights" javaType="java.util.ArrayList" ofType="Right" columnPrefix="right_" notNullColumn="n_id">
+            <id property="nId" column="n_id"></id>
+            <result property="cName" column="c_name"></result>
+            <result property="cRightValue" column="c_right_value"></result>
+            <result property="dCreateTime" column="d_create_time"></result>
+            <result property="nPid" column="n_pid"></result>
+        </collection>
+    </resultMap>
+
+    <select id="selectAllUserRight" resultMap="rightBO">
+        select t_user.n_id,
+        <include refid="com.guo.technologyforum.dao.mapper.customMapper.CustomSql.prefixRight">
+            <property name="tabAlias" value="t_right"/>
+            <property name="prefix" value="right_"/>
+        </include>
+        from
+        t_user left join t_user_right on t_user.n_id=t_user_right.n_user_id left join t_right on t_user_right.n_right_id=t_right.n_id
+    </select>
+</mapper>

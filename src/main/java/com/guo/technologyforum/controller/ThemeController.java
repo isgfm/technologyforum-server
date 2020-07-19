@@ -3,6 +3,7 @@ package com.guo.technologyforum.controller;
 import com.guo.technologyforum.annotation.CheckThemeExistStatus;
 import com.guo.technologyforum.annotation.RequireLogin;
 import com.guo.technologyforum.constant.ResultCode;
+import com.guo.technologyforum.constant.RightConstant;
 import com.guo.technologyforum.constant.ThemeConstant;
 import com.guo.technologyforum.dao.entity.Theme;
 import com.guo.technologyforum.dao.entity.vo.ThemePageVO;
@@ -17,6 +18,8 @@ import com.guo.technologyforum.service.ThemeService;
 import com.guo.technologyforum.util.CommonUtil;
 import com.guo.technologyforum.util.UserUtil;
 import io.swagger.annotations.Api;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -84,7 +87,7 @@ public class ThemeController {
      * @return com.guo.technologyforum.result.Result
      */
     @GetMapping("/user/attention")
-    @RequireLogin
+    @RequiresUser
     public Result getThemeListByUserAttention(
                                     @RequestParam("page")int page,
                                     @RequestParam("pageSize")int pageSize){
@@ -102,7 +105,7 @@ public class ThemeController {
      * @return com.guo.technologyforum.result.Result
      */
     @GetMapping("/user/keep")
-    @RequireLogin
+    @RequiresUser
     public Result getThemeListByUserKeep(
                                               @RequestParam("page")int page,
                                               @RequestParam("pageSize")int pageSize){
@@ -221,7 +224,7 @@ public class ThemeController {
      * @return com.guo.technologyforum.result.Result
      */
     @PutMapping("/hide/{themeId}")
-    @RequireLogin(needAdmin = true)
+    @RequiresPermissions(RightConstant.SYS_HTGL_ZTGL)
     public Result hideTheme(@PathVariable("themeId")long themeId){
         return Result.success(themeService.updateThemeStatus(themeId,ThemeConstant.THEME_STATUS_HIDE));
     }
