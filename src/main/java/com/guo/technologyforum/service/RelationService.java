@@ -5,7 +5,6 @@ import com.guo.technologyforum.dao.entity.UserAttentionExample;
 import com.guo.technologyforum.dao.entity.UserAttentionKey;
 import com.guo.technologyforum.dao.mapper.generateMapper.UserAttentionMapper;
 import com.guo.technologyforum.util.CommonUtil;
-import com.sun.xml.internal.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
